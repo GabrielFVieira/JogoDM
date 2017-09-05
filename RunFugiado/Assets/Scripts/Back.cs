@@ -16,7 +16,7 @@ public class Back : MonoBehaviour {
 		
 	}
 
-    public void BackToOptions()
+    public void Voltar()
     {
         SceneManager.LoadScene("Options");
     }
