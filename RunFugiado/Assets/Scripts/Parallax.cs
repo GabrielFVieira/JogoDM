@@ -18,7 +18,7 @@ public class Parallax : MonoBehaviour {
 
         if(transform.position.x + (GetComponent<SpriteRenderer>().bounds.size.x / 2) < cam.transform.position.x - (GetComponent<SpriteRenderer>().bounds.size.x / 2))
         {
-            transform.position = new Vector3(cam.transform.position.x + (GetComponent<SpriteRenderer>().bounds.size.x) - 0.1f, -0.04f, 0);
+            transform.position = new Vector3(cam.transform.position.x + (GetComponent<SpriteRenderer>().bounds.size.x) - 0.15f, -0.04f, 0);
         }
 	}
 }

@@ -10,8 +10,9 @@ public class OptionsManager : MonoBehaviour {
     public GameObject Sound;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        vol.value = AudioListener.volume;
+
+    }
 
     public void FixedUpdate()
     {

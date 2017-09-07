@@ -14,6 +14,9 @@ public class Jump : MonoBehaviour {
     public bool move;
     public float moveVel;
 
+    public float timer;
+    public bool controle;
+
     public Animator anim;
 	// Use this for initialization
 	void Start () {
@@ -80,13 +83,19 @@ public class Jump : MonoBehaviour {
                 anim.SetBool("Slide", true);
                 GetComponent<BoxCollider2D>().offset = new Vector2(0.01091601f, -0.03294219f);
                 GetComponent<BoxCollider2D>().size = new Vector2(1.055252f, 0.6208104f);
+                controle = true;
             }
 
-            if (Input.GetKeyUp(KeyCode.LeftControl) || Input.GetButtonDown("Jump"))
+            if (controle == true)
+                timer += Time.deltaTime;
+
+            if (Input.GetKeyUp(KeyCode.LeftControl) || Input.GetButtonDown("Jump") || timer > 1.5f)
             {
                 anim.SetBool("Slide", false);
                 GetComponent<BoxCollider2D>().offset = new Vector2(-0.005492329f, -0.02196747f);
                 GetComponent<BoxCollider2D>().size = new Vector2(0.5390164f, 1.126065f);
+                timer = 0;
+                controle = false;
             }
         }
     }
