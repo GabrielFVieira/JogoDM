@@ -6,25 +6,49 @@ public class ObstacleSpawn : MonoBehaviour {
     public GameObject box;
     public float boxPosX;
     public float boxPosY;
+    //public float TimerBox;
 
-    public float TimerBox;
-	// Use this for initialization
-	void Start () {
+    public GameObject tire;
+    public float tirePosX;
+    public float tirePosY;
+    //public float TimerTire;
+
+    public float timer;
+    public float random;
+    // Use this for initialization
+    void Start () {
         boxPosX = 2f;
-        boxPosY = -3.33f;
-	}
+        boxPosY = -3.772897f;
+
+        tirePosX = 2f;
+        tirePosY = -3.99f;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        TimerBox += Time.deltaTime;
+        timer += Time.deltaTime;
 
-        if(TimerBox > 1.5f)
+        if(timer > 2.5f)
         {
-            GameObject boxObstacle = Instantiate(box) as GameObject;
-            boxObstacle.transform.position = new Vector3(boxPosX , boxPosY, 0);
-            TimerBox = 0;
+            random = Random.Range(0, 2);
+
+            if (random == 0)
+            {
+                GameObject boxObstacle = Instantiate(box) as GameObject;
+                boxObstacle.transform.position = new Vector3(boxPosX, boxPosY, 0);
+                timer = 0;
+            }
+
+            else if (random == 1)
+            {
+                GameObject tireObstacle = Instantiate(tire) as GameObject;
+                tireObstacle.transform.position = new Vector3(tirePosX, tirePosY, 0);
+                timer = 0;
+            }
         }
-	}
+
+    }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {

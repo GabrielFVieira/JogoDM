@@ -63,14 +63,14 @@ public class Jump : MonoBehaviour {
         }
         ////////////////////////// JUMP ////////////////////////////////
 
-        if (Input.GetButtonDown("Jump") && grounded == true)
+        if (Input.GetKeyDown(KeyCode.W) && grounded == true)
         {
             anim.SetBool("Jump", true);
 
             GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVel;
         }
 
-        if (Input.GetButtonUp("Jump") && anim.GetBool("Jump") == true)
+        if (Input.GetKeyUp(KeyCode.W) && anim.GetBool("Jump") == true)
         {
             grounded = false;
         }
@@ -78,8 +78,9 @@ public class Jump : MonoBehaviour {
         ////////////////////////// SLIDE ////////////////////////////////
         if (SlideEnabled == true)
         {
-            if (Input.GetKeyDown(KeyCode.LeftControl) && grounded == true)
+            if (Input.GetKeyDown(KeyCode.S) && grounded == true)
             {
+                //MoveEnabled = false;
                 anim.SetBool("Slide", true);
                 GetComponent<BoxCollider2D>().offset = new Vector2(0.01091601f, -0.03294219f);
                 GetComponent<BoxCollider2D>().size = new Vector2(1.055252f, 0.6208104f);
@@ -89,8 +90,9 @@ public class Jump : MonoBehaviour {
             if (controle == true)
                 timer += Time.deltaTime;
 
-            if (Input.GetKeyUp(KeyCode.LeftControl) || Input.GetButtonDown("Jump") || timer > 1.5f)
+            if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyDown(KeyCode.W) || timer > 1f)
             {
+                //MoveEnabled = true;
                 anim.SetBool("Slide", false);
                 GetComponent<BoxCollider2D>().offset = new Vector2(-0.005492329f, -0.02196747f);
                 GetComponent<BoxCollider2D>().size = new Vector2(0.5390164f, 1.126065f);
@@ -106,6 +108,14 @@ public class Jump : MonoBehaviour {
         {
             grounded = true;
             anim.SetBool("Jump", false);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Tank")
+        {
+            Destroy(gameObject);
         }
     }
 }
