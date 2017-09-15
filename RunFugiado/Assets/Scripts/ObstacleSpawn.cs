@@ -13,6 +13,10 @@ public class ObstacleSpawn : MonoBehaviour {
     public float tirePosY;
     //public float TimerTire;
 
+    public GameObject sign;
+    public float signPosX;
+    public float signPosY;
+
     public GameObject missile;
     public float missilePosX;
     //public float missilePosY;
@@ -37,6 +41,9 @@ public class ObstacleSpawn : MonoBehaviour {
         tirePosX = 2f;
         tirePosY = -3.99f;
 
+        signPosX = 2.8f;
+        signPosY = -2.88f;
+
         missilePosX = 10f;
 
     }
@@ -55,7 +62,7 @@ public class ObstacleSpawn : MonoBehaviour {
 
         if(timer > maxTimer)
         {
-            random = Random.Range(0, 3);
+            random = Random.Range(0, 4);
 
             if(random == 2)
             {
@@ -99,6 +106,13 @@ public class ObstacleSpawn : MonoBehaviour {
             {
                 GameObject tireObstacle = Instantiate(tire) as GameObject;
                 tireObstacle.transform.position = new Vector3(tirePosX, tirePosY, 0);
+                timer = 0;
+            }
+
+            else if (random == 3)
+            {
+                GameObject signObstacle = Instantiate(sign) as GameObject;
+                signObstacle.transform.position = new Vector3(signPosX, signPosY, 0);
                 timer = 0;
             }
 
