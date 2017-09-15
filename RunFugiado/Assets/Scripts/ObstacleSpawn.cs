@@ -17,6 +17,10 @@ public class ObstacleSpawn : MonoBehaviour {
     public float signPosX;
     public float signPosY;
 
+    public GameObject explode;
+    public float explodePosX;
+    public float explodePosY;
+
     public GameObject missile;
     public float missilePosX;
     //public float missilePosY;
@@ -44,6 +48,9 @@ public class ObstacleSpawn : MonoBehaviour {
         signPosX = 2.8f;
         signPosY = -2.88f;
 
+        explodePosX = 2f;
+        explodePosY = -3.8f;
+
         missilePosX = 10f;
 
     }
@@ -62,7 +69,7 @@ public class ObstacleSpawn : MonoBehaviour {
 
         if(timer > maxTimer)
         {
-            random = Random.Range(0, 4);
+            random = Random.Range(0, 5);
 
             if(random == 2)
             {
@@ -113,6 +120,13 @@ public class ObstacleSpawn : MonoBehaviour {
             {
                 GameObject signObstacle = Instantiate(sign) as GameObject;
                 signObstacle.transform.position = new Vector3(signPosX, signPosY, 0);
+                timer = 0;
+            }
+
+            else if (random == 4)
+            {
+                GameObject explodeObstacle = Instantiate(explode) as GameObject;
+                explodeObstacle.transform.position = new Vector3(explodePosX, explodePosY, 0);
                 timer = 0;
             }
 

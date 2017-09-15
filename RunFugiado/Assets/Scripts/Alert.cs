@@ -13,7 +13,7 @@ public class Alert : MonoBehaviour {
 	void Update () {
         timer += Time.deltaTime;
 
-        if(timer > 1.5f)
+        if(timer > 0.5f)
         {
             gameObject.SetActive(false);
             timer = 0;
