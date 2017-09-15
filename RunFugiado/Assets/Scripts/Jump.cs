@@ -17,27 +17,58 @@ public class Jump : MonoBehaviour {
     public float timer;
     public bool controle;
 
+    public float timerRun;
+
     public Animator anim;
 	// Use this for initialization
 	void Start () {
+        moveVel = 1f;
+
         anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if(transform.position.x < -6.84f)
+        {
+            timerRun += Time.deltaTime;
+        }
+
+        if(timerRun > 15)
+        {
+            move = true;
+        }
+
+        if (transform.position.x >= -6.84f)
+        {
+            move = false;
+            timerRun = 0;
+        }
+
+        if (move == true)// && anim.GetBool("Slide") == false && anim.GetBool("Jump") == false)
+        {
+            transform.Translate(moveVel * Time.deltaTime, 0, 0);
+        }
+
         ////////////////////////// Move ////////////////////////////////
         if (MoveEnabled == true)
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
                 move = true;
-                moveVel = -2.5f;
+                if (moveVel > 0)
+                {
+                    moveVel *= -1;
+                }
             }
 
             else if (Input.GetKeyDown(KeyCode.D))
             {
                 move = true;
-                moveVel = 2.5f;
+                if (moveVel < 0)
+                {
+                    moveVel *= -1;
+                }
             }
 
             if (Input.GetKeyUp(KeyCode.A) && moveVel < 0)
@@ -109,6 +140,11 @@ public class Jump : MonoBehaviour {
             grounded = true;
             anim.SetBool("Jump", false);
         }
+
+        if(collision.gameObject.tag == "Box")
+        {
+            timerRun = 0;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -116,6 +152,11 @@ public class Jump : MonoBehaviour {
         if (collision.gameObject.tag == "Tank")
         {
             Destroy(gameObject);
+        }
+
+        if (collision.gameObject.tag == "Pneu")
+        {
+            timerRun = 0;
         }
     }
 }
