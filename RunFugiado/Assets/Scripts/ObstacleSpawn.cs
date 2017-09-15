@@ -13,27 +13,82 @@ public class ObstacleSpawn : MonoBehaviour {
     public float tirePosY;
     //public float TimerTire;
 
+    public GameObject missile;
+    public float missilePosX;
+    //public float missilePosY;
+
     public float timer;
+    public float maxTimer;
     public float random;
+
+    public float randomMissilePosX;
+    public GameObject[] alerts;
+
+
+    public float difficultTimer;
+    public float gameTimer;
     // Use this for initialization
     void Start () {
+        maxTimer = 2.5f;
+
         boxPosX = 2f;
         boxPosY = -3.772897f;
 
         tirePosX = 2f;
         tirePosY = -3.99f;
 
+        missilePosX = 10f;
+
     }
 	
 	// Update is called once per frame
 	void Update () {
+        gameTimer += Time.deltaTime;
+        difficultTimer += Time.deltaTime;
         timer += Time.deltaTime;
 
-        if(timer > 2.5f)
+        if(difficultTimer > 30f)
         {
-            random = Random.Range(0, 2);
+            maxTimer -= 0.1f;
+            difficultTimer = 0;
+        }
 
-            if (random == 0)
+        if(timer > maxTimer)
+        {
+            random = Random.Range(0, 3);
+
+            if(random == 2)
+            {
+                if (gameTimer > 30)
+                {
+                    randomMissilePosX = Random.Range(0, 2);
+
+                    if (randomMissilePosX == 0)
+                    { 
+                        GameObject missileObstacle = Instantiate(missile) as GameObject;
+                        missileObstacle.transform.position = new Vector3(missilePosX, -2.77f, 0);
+                        alerts[Mathf.RoundToInt(randomMissilePosX)].SetActive(true);
+                        timer = 0;
+                    }
+
+                    else
+                    {
+                        GameObject missileObstacle = Instantiate(missile) as GameObject;
+                        missileObstacle.transform.position = new Vector3(missilePosX, -3.63f, 0);
+                        alerts[Mathf.RoundToInt(randomMissilePosX)].SetActive(true);
+                        timer = 0;
+                    }
+                }
+
+                else
+                {
+                    GameObject boxObstacle = Instantiate(box) as GameObject;
+                    boxObstacle.transform.position = new Vector3(boxPosX, boxPosY, 0);
+                    timer = 0;
+                }
+            }
+
+            else if (random == 0)
             {
                 GameObject boxObstacle = Instantiate(box) as GameObject;
                 boxObstacle.transform.position = new Vector3(boxPosX, boxPosY, 0);
@@ -46,6 +101,8 @@ public class ObstacleSpawn : MonoBehaviour {
                 tireObstacle.transform.position = new Vector3(tirePosX, tirePosY, 0);
                 timer = 0;
             }
+
+
         }
 
     }

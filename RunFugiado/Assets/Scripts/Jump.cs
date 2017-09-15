@@ -82,8 +82,8 @@ public class Jump : MonoBehaviour {
             {
                 //MoveEnabled = false;
                 anim.SetBool("Slide", true);
-                GetComponent<BoxCollider2D>().offset = new Vector2(0.01091601f, -0.03294219f);
-                GetComponent<BoxCollider2D>().size = new Vector2(1.055252f, 0.6208104f);
+                GetComponent<BoxCollider2D>().offset = new Vector2(0.01091599f, -0.1300174f);
+                GetComponent<BoxCollider2D>().size = new Vector2(1.055252f, 0.4266595f);
                 controle = true;
             }
 
