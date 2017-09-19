@@ -43,7 +43,7 @@ public class ObstacleSpawn : MonoBehaviour {
         boxPosY = -3.772897f;
 
         tirePosX = 2f;
-        tirePosY = -3.99f;
+        tirePosY = -3.763f;
 
         signPosX = 2.8f;
         signPosY = -2.88f;
@@ -66,6 +66,8 @@ public class ObstacleSpawn : MonoBehaviour {
             maxTimer -= 0.1f;
             difficultTimer = 0;
         }
+
+        maxTimer = Mathf.Round(Random.Range(1.3f, 2.6f) * 10) / 10;
 
         if(timer > maxTimer)
         {
@@ -133,13 +135,5 @@ public class ObstacleSpawn : MonoBehaviour {
 
         }
 
-    }
-
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            Debug.Log("Bateu");
-        }
     }
 }
