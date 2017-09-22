@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour {
     public float MaxTime = 60;
 
     public Text text;
+
+    public Parallax[] bg;
     // Use this for initialization
     void Start () {
         pauseMenu.SetActive(false);
@@ -27,7 +29,15 @@ public class LevelManager : MonoBehaviour {
             distanceInt = Mathf.RoundToInt(distance);
         }
         text.text = "Distância percorrida: " + distanceInt + " metros";
-
+        /*
+        if(gameTimer > 20 && gameTimer < 20.5f || gameTimer > 35 && gameTimer < 35.5f || gameTimer > 50 && gameTimer < 50.5f)
+        {
+            foreach(Parallax go in bg)
+            {
+                go.parallaxVel += 0.2f;
+            }
+        }
+        */
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             pauseMenu.SetActive(!pauseMenu.activeSelf);

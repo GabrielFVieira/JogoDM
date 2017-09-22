@@ -37,9 +37,11 @@ public class Jump : MonoBehaviour {
             if (transform.position.y > -3.33f && anim.GetBool("Slide") == false)
                 transform.Translate(0, -GetComponent<BetterJump>().fallVel * Time.deltaTime, 0);
 
-            if(transform.position.y <= -3.33f)
+            if (transform.position.y <= -3.33f)
+            {
+                transform.position = new Vector3(transform.position.x, -3.33f, transform.position.z);
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-
+            }
             dieTimer += Time.deltaTime;
             GetComponent<SpriteRenderer>().sortingOrder = GameObject.FindGameObjectWithTag("Tank").GetComponent<SpriteRenderer>().sortingOrder - 1;
            
@@ -137,6 +139,7 @@ public class Jump : MonoBehaviour {
             {
                 //MoveEnabled = false;
                 anim.SetBool("Slide", true);
+                transform.position = new Vector3(transform.position.x, transform.position.y - 0.3f, transform.position.z);
                 GetComponent<BoxCollider2D>().offset = new Vector2(0.01091599f, -0.1300174f);
                 GetComponent<BoxCollider2D>().size = new Vector2(1.055252f, 0.4266595f);
                 controle = true;
@@ -170,7 +173,7 @@ public class Jump : MonoBehaviour {
             timerRun = 0;
         }
     }
-
+   
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Tank")

@@ -32,6 +32,8 @@ public class ObstacleSpawn : MonoBehaviour {
     public float randomMissilePosX;
     public GameObject[] alerts;
 
+    public float delay;
+    public float randomDelay;
 
     public float difficultTimer;
     public float gameTimer;
@@ -69,7 +71,25 @@ public class ObstacleSpawn : MonoBehaviour {
                 difficultTimer = 0;
             }
 
-            maxTimer = Mathf.Round(Random.Range(1.3f, 2.6f) * 10) / 10;
+            randomDelay = Random.Range(0, 5);
+
+            if (randomDelay == 0)
+                delay = 1f;
+
+            if (randomDelay == 1)
+                delay = 1.3f;
+
+            if (randomDelay == 2)
+                delay = 1.8f;
+
+            if (randomDelay == 3)
+                delay = 2.1f;
+
+            if (randomDelay == 4)
+                delay = 2.5f;
+
+
+            maxTimer = delay;
 
             if (timer > maxTimer)
             {

@@ -5,6 +5,9 @@ using UnityEngine;
 public class Collisions : MonoBehaviour {
     public Animator animo;
     public Parallax bg;
+
+    public float timer;
+    public bool controle;
 	// Use this for initialization
 	void Start () {
         animo = GetComponent<Animator>();
@@ -12,11 +15,21 @@ public class Collisions : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-
-		/*if(animo.GetBool("Col") == true)
+		if(animo.GetBool("Col") == true)
         {
             transform.Translate(-bg.parallaxVel * Time.deltaTime, 0, 0);
+        }
+
+        if(controle == true)
+        {
+            timer += Time.deltaTime;
+        }
+
+        if(timer > 0.3f)
+        {
+            animo.SetBool("Fall", false);
+            timer = 0;
+            controle = false;
         }
 	}
 
@@ -41,9 +54,10 @@ public class Collisions : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Pneu")
+        if (col.gameObject.tag == "Pneu" && controle == false)
         {
-            animo.SetBool("Col", true);
+            animo.SetBool("Fall", true);
+            controle = true;
         }
     }
 
@@ -63,13 +77,5 @@ public class Collisions : MonoBehaviour {
         {
             animo.SetBool("Col", false);
         }
-    }
-
-    public void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Pneu")
-        {
-            animo.SetBool("Col", false);
-        }*/
     }
 }
