@@ -1,19 +1,13 @@
 fileFormatVersion: 2
-guid: 879e55eee3871234aa873ed7c8988982
-timeCreated: 1504442795
+guid: f3fe6a642ef192b4c958f2534645e42a
+timeCreated: 1506090033
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Run_0
-    21300002: Run_1
-    21300004: Run_2
-    21300006: Run_3
-    21300008: Run_4
-    21300010: Run_5
-    21300012: Run_6
-    21300014: Run_7
-    21300016: Run_8
-    21300018: Run_9
+    21300000: Iddle_0
+    21300002: Iddle_1
+    21300004: Iddle_2
+    21300006: Iddle_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -88,130 +82,52 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Run_0
+      name: Iddle_0
       rect:
         serializedVersion: 2
-        x: 43
-        y: 282
-        width: 134
-        height: 181
+        x: 0
+        y: 0
+        width: 44
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Run_1
+      name: Iddle_1
       rect:
         serializedVersion: 2
-        x: 191
-        y: 267
-        width: 147
-        height: 178
+        x: 78
+        y: 0
+        width: 45
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Run_2
+      name: Iddle_2
       rect:
         serializedVersion: 2
-        x: 367
-        y: 260
-        width: 150
-        height: 173
+        x: 161
+        y: 0
+        width: 47
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Run_3
+      name: Iddle_3
       rect:
         serializedVersion: 2
-        x: 575
-        y: 255
-        width: 126
-        height: 189
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Run_4
-      rect:
-        serializedVersion: 2
-        x: 739
-        y: 248
-        width: 131
-        height: 186
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Run_5
-      rect:
-        serializedVersion: 2
-        x: 30
-        y: 47
-        width: 132
-        height: 178
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Run_6
-      rect:
-        serializedVersion: 2
-        x: 190
-        y: 42
-        width: 151
-        height: 182
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Run_7
-      rect:
-        serializedVersion: 2
-        x: 363
-        y: 45
-        width: 156
-        height: 170
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Run_8
-      rect:
-        serializedVersion: 2
-        x: 554
-        y: 32
-        width: 138
-        height: 188
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Run_9
-      rect:
-        serializedVersion: 2
-        x: 737
-        y: 40
-        width: 134
-        height: 184
+        x: 241
+        y: 0
+        width: 47
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

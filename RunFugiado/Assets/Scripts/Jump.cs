@@ -9,7 +9,6 @@ public class Jump : MonoBehaviour {
     public bool MoveEnabled = true;
     public bool SlideEnabled = true;
 
-
     public bool grounded;
     public bool move;
     public float moveVel;
@@ -20,6 +19,9 @@ public class Jump : MonoBehaviour {
     public float timerRun;
 
     public Animator anim;
+
+    public float dieTimer;
+    public Sprite dead;
 	// Use this for initialization
 	void Start () {
         moveVel = 1f;
@@ -29,6 +31,17 @@ public class Jump : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(anim.GetBool("Die") == true)
+        {
+            dieTimer += Time.deltaTime;
+        }
+
+        if(dieTimer > 0.5f)
+        {
+            anim.enabled = false;
+            GetComponent<SpriteRenderer>().sprite = dead;
+        }
+
         if(transform.position.x < -6.84f)
         {
             timerRun += Time.deltaTime;
@@ -151,7 +164,10 @@ public class Jump : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Tank")
         {
-            Destroy(gameObject);
+            anim.SetBool("Die", true);
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            GetComponent<Collider2D>().enabled = false;
+            //Destroy(gameObject);
         }
 
         if (collision.gameObject.tag == "Pneu")

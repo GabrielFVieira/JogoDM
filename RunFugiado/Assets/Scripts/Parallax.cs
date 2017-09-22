@@ -14,11 +14,17 @@ public class Parallax : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Translate(-parallaxVel * Time.deltaTime, 0, 0);
-
-        if(transform.position.x + (GetComponent<SpriteRenderer>().bounds.size.x / 2) < cam.transform.position.x - (GetComponent<SpriteRenderer>().bounds.size.x / 2))
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Die") == false)
         {
-            transform.position = new Vector3(cam.transform.position.x + (GetComponent<SpriteRenderer>().bounds.size.x) - 0.15f, -0.04f, 0);
+            transform.Translate(-parallaxVel * Time.deltaTime, 0, 0);
+
+            if (transform.position.x + (GetComponent<SpriteRenderer>().bounds.size.x / 2) < cam.transform.position.x - (GetComponent<SpriteRenderer>().bounds.size.x / 2))
+            {
+                transform.position = new Vector3(cam.transform.position.x + (GetComponent<SpriteRenderer>().bounds.size.x) - 0.15f, -0.04f, 0);
+            }
         }
+
+        else
+            parallaxVel = 0;
 	}
 }

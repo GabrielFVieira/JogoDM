@@ -6,13 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
     public GameObject pauseMenu;
-	// Use this for initialization
-	void Start () {
+    public float gameTimer;
+    public float distance;
+    public float distanceInt;
+
+    public float MaxTime = 60;
+
+    public Text text;
+    // Use this for initialization
+    void Start () {
         pauseMenu.SetActive(false);
     }
 	
 	// Update is called once per frame
 	void Update () {
+        gameTimer += Time.deltaTime;
+        distance += 2 * Time.deltaTime;
+        distanceInt = Mathf.RoundToInt(distance);
+
+        text.text = "Distância percorrida: " + distanceInt + " metros";
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             pauseMenu.SetActive(!pauseMenu.activeSelf);
@@ -25,6 +38,11 @@ public class LevelManager : MonoBehaviour {
 
         else
             Time.timeScale = 1;
+
+        if(gameTimer >= MaxTime)
+        {
+            SceneManager.LoadScene("EndGame");
+        }
     }
 
     public void Resume()

@@ -20,11 +20,14 @@ public class ObstacleManager : MonoBehaviour {
         else
             Vel = GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        if(move == true)
-        transform.Translate(-Vel * Time.deltaTime, 0, 0);
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (move == true && GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Die") == false)
+        {
+            transform.Translate(-Vel * Time.deltaTime, 0, 0);
+        }
     }
 
     void OnTriggerStay2D(Collider2D collision)
