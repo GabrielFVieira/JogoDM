@@ -22,6 +22,7 @@ public class Jump : MonoBehaviour {
 
     public float dieTimer;
     public Sprite dead;
+    public Sprite tank;
 	// Use this for initialization
 	void Start () {
         moveVel = 1f;
@@ -33,7 +34,15 @@ public class Jump : MonoBehaviour {
 	void Update () {
         if(anim.GetBool("Die") == true)
         {
+            if (transform.position.y > -3.33f && anim.GetBool("Slide") == false)
+                transform.Translate(0, -GetComponent<BetterJump>().fallVel * Time.deltaTime, 0);
+
+            if(transform.position.y <= -3.33f)
+                GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+
             dieTimer += Time.deltaTime;
+            GetComponent<SpriteRenderer>().sortingOrder = GameObject.FindGameObjectWithTag("Tank").GetComponent<SpriteRenderer>().sortingOrder - 1;
+           
         }
 
         if(dieTimer > 0.5f)
@@ -42,22 +51,24 @@ public class Jump : MonoBehaviour {
             GetComponent<SpriteRenderer>().sprite = dead;
         }
 
-        if(transform.position.x < -6.84f)
+        if (anim.GetBool("Die") == false)
         {
-            timerRun += Time.deltaTime;
-        }
+            if (transform.position.x < -6.84f)
+            {
+                timerRun += Time.deltaTime;
+            }
 
-        if(timerRun > 15)
-        {
-            move = true;
-        }
+            if (timerRun > 15)
+            {
+                move = true;
+            }
 
-        if (transform.position.x >= -6.84f)
-        {
-            move = false;
-            timerRun = 0;
+            if (transform.position.x >= -6.84f)
+            {
+                move = false;
+                timerRun = 0;
+            }
         }
-
         if (move == true)// && anim.GetBool("Slide") == false && anim.GetBool("Jump") == false)
         {
             transform.Translate(moveVel * Time.deltaTime, 0, 0);
@@ -165,7 +176,7 @@ public class Jump : MonoBehaviour {
         if (collision.gameObject.tag == "Tank")
         {
             anim.SetBool("Die", true);
-            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            //GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             GetComponent<Collider2D>().enabled = false;
             //Destroy(gameObject);
         }

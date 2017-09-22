@@ -28,7 +28,9 @@ public class Explosion : MonoBehaviour {
         {
             GetComponent<Animator>().SetBool("Explode", true);
             transform.localScale = new Vector3(1, 1, 1);
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Animator>().SetBool("Die", true);
+            collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            //Destroy(collision.gameObject);
         }
     }
 

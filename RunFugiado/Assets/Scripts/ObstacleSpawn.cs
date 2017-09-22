@@ -57,7 +57,7 @@ public class ObstacleSpawn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Die") == false)
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Jump>().anim.enabled != false)
         {
             gameTimer += Time.deltaTime;
             difficultTimer += Time.deltaTime;

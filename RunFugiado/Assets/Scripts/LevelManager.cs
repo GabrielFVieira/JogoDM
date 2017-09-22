@@ -20,16 +20,20 @@ public class LevelManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        gameTimer += Time.deltaTime;
-        distance += 2 * Time.deltaTime;
-        distanceInt = Mathf.RoundToInt(distance);
-
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Die") == false)
+        {
+            gameTimer += Time.deltaTime;
+            distance += 2 * Time.deltaTime;
+            distanceInt = Mathf.RoundToInt(distance);
+        }
         text.text = "Distância percorrida: " + distanceInt + " metros";
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             pauseMenu.SetActive(!pauseMenu.activeSelf);
         }
+
+        Cursor.visible = pauseMenu.activeSelf;
 
         if (pauseMenu.activeSelf == true)
         {
@@ -42,6 +46,11 @@ public class LevelManager : MonoBehaviour {
         if(gameTimer >= MaxTime)
         {
             SceneManager.LoadScene("EndGame");
+        }
+
+        if(GameObject.FindGameObjectWithTag("Tank").transform.position.x > 3.37f)
+        {
+            SceneManager.LoadScene("GameOver");
         }
     }
 
