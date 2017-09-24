@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour {
     public float timer;
+    public AudioSource explosion;
 	// Use this for initialization
 	void Start () {
-		
+        explosion = GameObject.Find("Explosion").GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -26,6 +27,7 @@ public class Explosion : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player")
         {
+            explosion.Play();
             GetComponent<Animator>().SetBool("Explode", true);
             transform.localScale = new Vector3(1, 1, 1);
             collision.gameObject.GetComponent<Animator>().SetBool("Die", true);
@@ -38,6 +40,7 @@ public class Explosion : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Tank")
         {
+            explosion.Play();
             GetComponent<Animator>().SetBool("Explode", true);
             transform.localScale = new Vector3(1, 1, 1);
         }

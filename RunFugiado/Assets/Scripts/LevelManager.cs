@@ -15,9 +15,14 @@ public class LevelManager : MonoBehaviour {
     public Text text;
 
     public Parallax[] bg;
+
+    public float vol;
     // Use this for initialization
     void Start () {
+        vol = AudioListener.volume;
+
         pauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 	
 	// Update is called once per frame
@@ -48,17 +53,26 @@ public class LevelManager : MonoBehaviour {
         if (pauseMenu.activeSelf == true)
         {
             Time.timeScale = 0;
+            AudioListener.volume = 0;
         }
 
         else
+        {
             Time.timeScale = 1;
-
+            AudioListener.volume = vol;
+        }
         if(gameTimer >= MaxTime)
         {
-            SceneManager.LoadScene("EndGame");
+            foreach (Parallax go in bg)
+            {
+                go.parallaxVel = 0;
+            }
+
+            if(GameObject.FindGameObjectWithTag("Player").transform.position.x > 0)
+                SceneManager.LoadScene("EndGame");
         }
 
-        if(GameObject.FindGameObjectWithTag("Tank").transform.position.x > 3.37f)
+        if(GameObject.FindGameObjectWithTag("Tank").transform.position.x > 5.49f)
         {
             SceneManager.LoadScene("GameOver");
         }
@@ -71,11 +85,14 @@ public class LevelManager : MonoBehaviour {
 
     public void Restart()
     {
+        pauseMenu.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Menu()
     {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
         SceneManager.LoadScene("Menu");
     }
 }

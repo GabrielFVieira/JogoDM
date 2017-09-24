@@ -11,7 +11,7 @@ public class OptionsManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         vol.value = AudioListener.volume;
-
+        Time.timeScale = 1;
     }
 
     public void FixedUpdate()

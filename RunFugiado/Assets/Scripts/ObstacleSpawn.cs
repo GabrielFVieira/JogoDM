@@ -37,6 +37,8 @@ public class ObstacleSpawn : MonoBehaviour {
 
     public float difficultTimer;
     public float gameTimer;
+
+    public LevelManager manager;
     // Use this for initialization
     void Start () {
         maxTimer = 2.5f;
@@ -91,7 +93,7 @@ public class ObstacleSpawn : MonoBehaviour {
 
             maxTimer = delay;
 
-            if (timer > maxTimer)
+            if (timer > maxTimer && manager.gameTimer <= manager.MaxTime)
             {
                 random = Random.Range(0, 5);
 

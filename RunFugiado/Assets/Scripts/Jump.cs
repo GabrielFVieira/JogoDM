@@ -23,9 +23,16 @@ public class Jump : MonoBehaviour {
     public float dieTimer;
     public Sprite dead;
     public Sprite tank;
+
+    public float vel;
+
+    public AudioSource jump;
+    public AudioSource slide;
 	// Use this for initialization
 	void Start () {
         moveVel = 1f;
+
+        vel = GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel;
 
         anim = GetComponent<Animator>();
 	}
@@ -71,10 +78,19 @@ public class Jump : MonoBehaviour {
                 timerRun = 0;
             }
         }
-        if (move == true)// && anim.GetBool("Slide") == false && anim.GetBool("Jump") == false)
+        if (move == true && anim.GetBool("Die") == false)// && anim.GetBool("Slide") == false && anim.GetBool("Jump") == false)
         {
             transform.Translate(moveVel * Time.deltaTime, 0, 0);
         }
+
+        if(GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().gameTimer >= GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().MaxTime - 5 && GameObject.FindGameObjectWithTag("Tank").transform.position.x >= -21.5f && anim.GetBool("Die") == false)
+            GameObject.FindGameObjectWithTag("Tank").transform.Translate(-vel * Time.deltaTime, 0, 0);
+
+        if (GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().gameTimer >= GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().MaxTime)
+            {
+                if (anim.GetBool("Col") == false)
+                    transform.Translate(vel * 0.8f * Time.deltaTime, 0, 0);
+            }
 
         ////////////////////////// Move ////////////////////////////////
         if (MoveEnabled == true)
@@ -120,10 +136,10 @@ public class Jump : MonoBehaviour {
         }
         ////////////////////////// JUMP ////////////////////////////////
 
-        if (Input.GetKeyDown(KeyCode.W) && grounded == true)
+        if (Input.GetKeyDown(KeyCode.W) && grounded == true && anim.GetBool("Fall") == false && Time.timeScale > 0)
         {
             anim.SetBool("Jump", true);
-
+            jump.Play();
             GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVel;
         }
 
@@ -133,11 +149,12 @@ public class Jump : MonoBehaviour {
         }
 
         ////////////////////////// SLIDE ////////////////////////////////
-        if (SlideEnabled == true)
+        if (SlideEnabled == true && Time.timeScale > 0)
         {
-            if (Input.GetKeyDown(KeyCode.S) && grounded == true)
+            if (Input.GetKeyDown(KeyCode.S) && grounded == true && anim.GetBool("Fall") == false)
             {
                 //MoveEnabled = false;
+                slide.Play();
                 anim.SetBool("Slide", true);
                 transform.position = new Vector3(transform.position.x, transform.position.y - 0.3f, transform.position.z);
                 GetComponent<BoxCollider2D>().offset = new Vector2(0.01091599f, -0.1300174f);
@@ -148,14 +165,15 @@ public class Jump : MonoBehaviour {
             if (controle == true)
                 timer += Time.deltaTime;
 
-            if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyDown(KeyCode.W) || timer > 1f)
+            if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyDown(KeyCode.W) || timer > 1f && anim.GetBool("Fall") == false)
             {
                 //MoveEnabled = true;
-                anim.SetBool("Slide", false);
-                GetComponent<BoxCollider2D>().offset = new Vector2(-0.005492329f, -0.02196747f);
-                GetComponent<BoxCollider2D>().size = new Vector2(0.5390164f, 1.126065f);
-                timer = 0;
-                controle = false;
+                    slide.Stop();
+                    anim.SetBool("Slide", false);
+                    GetComponent<BoxCollider2D>().offset = new Vector2(-0.005492329f, -0.02196747f);
+                    GetComponent<BoxCollider2D>().size = new Vector2(0.5390164f, 1.126065f);
+                    timer = 0;
+                    controle = false;
             }
         }
     }

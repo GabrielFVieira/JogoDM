@@ -15,11 +15,8 @@ public class Pneu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Die") == false)
-        {
             if (controle == true && Time.timeScale != 0)
                 transform.Rotate(0, 0, vel);
-        }
 	}
 
     public void OnCollisionEnter2D(Collision2D collision)

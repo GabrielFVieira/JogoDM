@@ -25,29 +25,50 @@ public class ObstacleManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(move == true && GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Die") == false)
+        if (move == true && GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Die") == false)
+        {
+            if (gameObject.tag == "Pneu" && GetComponentInChildren<SpriteRenderer>().sprite != fallTire)
             {
-                transform.Translate(-Vel * Time.deltaTime, 0, 0);
+                Vel = GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel * 1.4f;
             }
+
+            else
+                Vel = GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel;
         }
+
+        if (GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().gameTimer <= GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().MaxTime)
+                {
+                    if (move == true && GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Die") == false)
+                    {
+                        transform.Translate(-Vel * Time.deltaTime, 0, 0);
+                    }
+                }
+
+                if ( gameObject.tag == "Pneu" && gameObject.GetComponentInChildren<SpriteRenderer>().sprite != fallTire && GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().gameTimer >= GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().MaxTime)
+                        transform.Translate(-Vel * 0.4f * Time.deltaTime, 0, 0);
+                
+                if(GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Die") == true && gameObject.tag == "Pneu" && gameObject.GetComponentInChildren<SpriteRenderer>().sprite != fallTire)
+                    {
+                        transform.Translate(-Vel * 0.4f * Time.deltaTime, 0, 0);
+                    }
+    }
     void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Tank")
+            if (collision.gameObject.tag == "Tank")
         {
             timer += Time.deltaTime;
-
             GetComponent<Collider2D>().isTrigger = true; 
 
             //GetComponent<Animator>().SetBool("Destroy", true);
             if(gameObject.tag == "Pneu")
             {
                 GetComponentInChildren<Pneu>().enabled = false;
-
+                GetComponentInChildren<SpriteRenderer>().sprite = fallTire;
                 if (transform.position.x < -16f)
                     move = false;
             }
             
-            else if (transform.position.x < -15.3f)
+            else if (transform.position.x < -15.3f && GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().gameTimer >= GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().MaxTime)
                 move = false;
             
             if(timer > 1f)
