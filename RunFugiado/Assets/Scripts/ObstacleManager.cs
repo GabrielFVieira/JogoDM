@@ -62,8 +62,13 @@ public class ObstacleManager : MonoBehaviour {
             //GetComponent<Animator>().SetBool("Destroy", true);
             if(gameObject.tag == "Pneu")
             {
+                transform.position = new Vector3(transform.position.x, -4.087f, transform.position.z);
+                GetComponentInChildren<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                 GetComponentInChildren<Pneu>().enabled = false;
                 GetComponentInChildren<SpriteRenderer>().sprite = fallTire;
+                transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, 0);
+                GetComponent<CircleCollider2D>().enabled = false;
+                Vel = GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel;
                 if (transform.position.x < -16f)
                     move = false;
             }
