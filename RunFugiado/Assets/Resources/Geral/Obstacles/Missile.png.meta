@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a2b599e7f88064c4684de33130456ff0
-timeCreated: 1505429866
+timeCreated: 1506429985
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -89,12 +89,12 @@ TextureImporter:
       name: Missile_0
       rect:
         serializedVersion: 2
-        x: 79
-        y: 87
-        width: 270
-        height: 66
+        x: 0
+        y: 191
+        width: 74
+        height: 20
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -102,12 +102,12 @@ TextureImporter:
       name: Missile_1
       rect:
         serializedVersion: 2
-        x: 396
-        y: 87
-        width: 303
-        height: 66
+        x: 80
+        y: 191
+        width: 74
+        height: 20
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -115,12 +115,12 @@ TextureImporter:
       name: Missile_2
       rect:
         serializedVersion: 2
-        x: 731
-        y: 87
-        width: 318
-        height: 66
+        x: 160
+        y: 191
+        width: 76
+        height: 20
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -128,12 +128,12 @@ TextureImporter:
       name: Missile_3
       rect:
         serializedVersion: 2
-        x: 1066
-        y: 87
-        width: 333
-        height: 66
+        x: 0
+        y: 111
+        width: 77
+        height: 20
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -141,10 +141,10 @@ TextureImporter:
       name: Missile_4
       rect:
         serializedVersion: 2
-        x: 1
-        y: 5
-        width: 348
-        height: 66
+        x: 80
+        y: 111
+        width: 76
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,10 +154,10 @@ TextureImporter:
       name: Missile_5
       rect:
         serializedVersion: 2
-        x: 351
-        y: 3
-        width: 348
-        height: 68
+        x: 160
+        y: 111
+        width: 74
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,23 +167,10 @@ TextureImporter:
       name: Missile_6
       rect:
         serializedVersion: 2
-        x: 701
-        y: 5
-        width: 348
-        height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Missile_7
-      rect:
-        serializedVersion: 2
-        x: 1051
-        y: 5
-        width: 348
-        height: 66
+        x: 0
+        y: 31
+        width: 74
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
