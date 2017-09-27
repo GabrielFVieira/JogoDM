@@ -30,9 +30,13 @@ public class Jump : MonoBehaviour {
 
     public AudioSource jump;
     public AudioSource slide;
+
+    public ButtonSelect button;
 	// Use this for initialization
 	void Start () {
         moveVel = 1f;
+
+        button = GameObject.Find("ButtonSelect").GetComponent<ButtonSelect>();
 
         vel = GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel;
 
@@ -41,7 +45,12 @@ public class Jump : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(anim.GetBool("Die") == true)
+        bool jumpDown = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W);
+        bool jumpUp = Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W);
+        bool slideDown = Input.GetKeyDown(KeyCode.DownArrow);
+        bool slideUp = Input.GetKeyUp(KeyCode.DownArrow);
+
+        if (anim.GetBool("Die") == true)
         {
             if (transform.position.y > -3.33f && anim.GetBool("Slide") == false)
                 transform.Translate(0, -GetComponent<BetterJump>().fallVel * Time.deltaTime, 0);
@@ -137,59 +146,123 @@ public class Jump : MonoBehaviour {
             }
         }
         ////////////////////////// JUMP ////////////////////////////////
-
-        if (Input.GetKeyDown(KeyCode.W) && grounded == true && anim.GetBool("Fall") == false && Time.timeScale > 0)
+        if (button.Up == "W")
         {
-            anim.SetBool("Jump", true);
-            jump.Play();
-            GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVel;
+            if (Input.GetKeyDown(KeyCode.W) && grounded == true && anim.GetBool("Fall") == false && Time.timeScale > 0)
+            {
+                anim.SetBool("Jump", true);
+                jump.Play();
+                GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVel;
+            }
+
+            if (Input.GetKeyUp(KeyCode.W) && anim.GetBool("Jump") == true)
+            {
+                grounded = false;
+            }
         }
 
-        if (Input.GetKeyUp(KeyCode.W) && anim.GetBool("Jump") == true)
+        if (button.Up == "UpArrow")
         {
-            grounded = false;
-        }
+            if (Input.GetKeyDown(KeyCode.UpArrow) && grounded == true && anim.GetBool("Fall") == false && Time.timeScale > 0)
+            {
+                anim.SetBool("Jump", true);
+                jump.Play();
+                GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVel;
+            }
 
+            if (Input.GetKeyUp(KeyCode.UpArrow) && anim.GetBool("Jump") == true)
+            {
+                grounded = false;
+            }
+        }
         ////////////////////////// SLIDE ////////////////////////////////
-        if (SlideEnabled == true && Time.timeScale > 0)
+        if (button.Down == "S")
         {
-            if (Input.GetKeyDown(KeyCode.S) && grounded == true && anim.GetBool("Fall") == false && timerCD == 0)
+            if (SlideEnabled == true && Time.timeScale > 0)
             {
-                //MoveEnabled = false;
-                slide.Play();
-                anim.SetBool("Slide", true);
-                transform.position = new Vector3(transform.position.x, transform.position.y - 0.3f, transform.position.z);
-                GetComponent<BoxCollider2D>().offset = new Vector2(0.01091599f, -0.1300174f);
-                GetComponent<BoxCollider2D>().size = new Vector2(1.055252f, 0.4266595f);
-                controle = true;
-                controleCD = true;
-            }
+                if (Input.GetKeyDown(KeyCode.S) && grounded == true && anim.GetBool("Fall") == false && timerCD == 0)
+                {
+                    //MoveEnabled = false;
+                    slide.Play();
+                    anim.SetBool("Slide", true);
+                    transform.position = new Vector3(transform.position.x, transform.position.y - 0.3f, transform.position.z);
+                    GetComponent<BoxCollider2D>().offset = new Vector2(0.01091599f, -0.1300174f);
+                    GetComponent<BoxCollider2D>().size = new Vector2(1.055252f, 0.4266595f);
+                    controle = true;
+                    controleCD = true;
+                }
 
-            if (controle == true)
-            {
-                timer += Time.deltaTime;
-            }
+                if (controle == true)
+                {
+                    timer += Time.deltaTime;
+                }
 
-            if (controleCD == true)
-            {
-                timerCD += Time.deltaTime;
-            }
+                if (controleCD == true)
+                {
+                    timerCD += Time.deltaTime;
+                }
 
-            if (timerCD > 0.5f)
-            {
-                timerCD = 0;
-                controleCD = false;
-            }
+                if (timerCD > 0.5f)
+                {
+                    timerCD = 0;
+                    controleCD = false;
+                }
 
-            if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyDown(KeyCode.W) || timer > 1f && anim.GetBool("Fall") == false)
-            {
-                //MoveEnabled = true;
+                if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyDown(KeyCode.W) || timer > 1f && anim.GetBool("Fall") == false)
+                {
+                    //MoveEnabled = true;
                     slide.Stop();
                     anim.SetBool("Slide", false);
                     GetComponent<BoxCollider2D>().offset = new Vector2(-0.005492329f, -0.02196747f);
                     GetComponent<BoxCollider2D>().size = new Vector2(0.5390164f, 1.126065f);
                     timer = 0;
                     controle = false;
+                }
+            }
+        }
+
+        if (button.Down == "DownArrow")
+        {
+            if (SlideEnabled == true && Time.timeScale > 0)
+            {
+                if (Input.GetKeyDown(KeyCode.DownArrow) && grounded == true && anim.GetBool("Fall") == false && timerCD == 0)
+                {
+                    //MoveEnabled = false;
+                    slide.Play();
+                    anim.SetBool("Slide", true);
+                    transform.position = new Vector3(transform.position.x, transform.position.y - 0.3f, transform.position.z);
+                    GetComponent<BoxCollider2D>().offset = new Vector2(0.01091599f, -0.1300174f);
+                    GetComponent<BoxCollider2D>().size = new Vector2(1.055252f, 0.4266595f);
+                    controle = true;
+                    controleCD = true;
+                }
+
+                if (controle == true)
+                {
+                    timer += Time.deltaTime;
+                }
+
+                if (controleCD == true)
+                {
+                    timerCD += Time.deltaTime;
+                }
+
+                if (timerCD > 0.5f)
+                {
+                    timerCD = 0;
+                    controleCD = false;
+                }
+
+                if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.UpArrow) || timer > 1f && anim.GetBool("Fall") == false)
+                {
+                    //MoveEnabled = true;
+                    slide.Stop();
+                    anim.SetBool("Slide", false);
+                    GetComponent<BoxCollider2D>().offset = new Vector2(-0.005492329f, -0.02196747f);
+                    GetComponent<BoxCollider2D>().size = new Vector2(0.5390164f, 1.126065f);
+                    timer = 0;
+                    controle = false;
+                }
             }
         }
     }

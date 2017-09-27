@@ -1,11 +1,13 @@
 fileFormatVersion: 2
 guid: b05b6050d649c5c4d9ccd8e102b3006a
-timeCreated: 1506466968
+timeCreated: 1506525380
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: W and S_0
     21300002: W and S_1
+    21300004: W and S_2
+    21300006: W and S_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -84,9 +86,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 29
-        width: 29
-        height: 29
+        y: 290
+        width: 290
+        height: 290
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -96,10 +98,36 @@ TextureImporter:
       name: W and S_1
       rect:
         serializedVersion: 2
+        x: 290
+        y: 290
+        width: 290
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: W and S_2
+      rect:
+        serializedVersion: 2
         x: 0
         y: 0
-        width: 29
-        height: 29
+        width: 290
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: W and S_3
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 0
+        width: 290
+        height: 290
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

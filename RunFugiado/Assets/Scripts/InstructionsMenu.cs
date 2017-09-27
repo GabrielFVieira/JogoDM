@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class InstructionsMenu : MonoBehaviour {
-
+    public float timer;
+    public bool controle;
 	// Use this for initialization
 	void Start () {
 		
@@ -14,8 +15,14 @@ public class InstructionsMenu : MonoBehaviour {
 	void Update () {
 		if(Input.anyKeyDown)
         {
-            StartGame();
+            controle = true;
         }
+
+        if (controle == true)
+            timer += Time.deltaTime;
+
+        if (timer > 0.15f)
+            StartGame();
 	}
 
     public void StartGame()
