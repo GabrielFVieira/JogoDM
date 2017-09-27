@@ -78,6 +78,7 @@ public class DayAndNight : MonoBehaviour {
                 GetComponent<SpriteRenderer>().sprite = fases[0];
         }
 
+        if(Application.loadedLevelName == "Game")
         if (GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().gameTimer >= GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().MaxTime || GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Die") == true)
             vel = 0.1f;
 	}

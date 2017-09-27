@@ -14,7 +14,9 @@ public class Jump : MonoBehaviour {
     public float moveVel;
 
     public float timer;
+    public float timerCD;
     public bool controle;
+    public bool controleCD;
 
     public float timerRun;
 
@@ -151,7 +153,7 @@ public class Jump : MonoBehaviour {
         ////////////////////////// SLIDE ////////////////////////////////
         if (SlideEnabled == true && Time.timeScale > 0)
         {
-            if (Input.GetKeyDown(KeyCode.S) && grounded == true && anim.GetBool("Fall") == false)
+            if (Input.GetKeyDown(KeyCode.S) && grounded == true && anim.GetBool("Fall") == false && timerCD == 0)
             {
                 //MoveEnabled = false;
                 slide.Play();
@@ -160,10 +162,24 @@ public class Jump : MonoBehaviour {
                 GetComponent<BoxCollider2D>().offset = new Vector2(0.01091599f, -0.1300174f);
                 GetComponent<BoxCollider2D>().size = new Vector2(1.055252f, 0.4266595f);
                 controle = true;
+                controleCD = true;
             }
 
             if (controle == true)
+            {
                 timer += Time.deltaTime;
+            }
+
+            if (controleCD == true)
+            {
+                timerCD += Time.deltaTime;
+            }
+
+            if (timerCD > 0.5f)
+            {
+                timerCD = 0;
+                controleCD = false;
+            }
 
             if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyDown(KeyCode.W) || timer > 1f && anim.GetBool("Fall") == false)
             {

@@ -9,7 +9,7 @@ public class Pneu : MonoBehaviour {
     public ObstacleManager move;
 	// Use this for initialization
 	void Start () {
-        vel = 4;
+        vel = 10;
         controle = true;
 	}
 	
