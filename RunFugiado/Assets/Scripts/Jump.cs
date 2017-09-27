@@ -28,15 +28,16 @@ public class Jump : MonoBehaviour {
 
     public float vel;
 
+    public bool controlJump;
+
     public AudioSource jump;
     public AudioSource slide;
 
-    public ButtonSelect button;
 	// Use this for initialization
 	void Start () {
         moveVel = 1f;
 
-        button = GameObject.Find("ButtonSelect").GetComponent<ButtonSelect>();
+        controlJump = true;
 
         vel = GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel;
 
@@ -47,8 +48,8 @@ public class Jump : MonoBehaviour {
 	void Update () {
         bool jumpDown = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W);
         bool jumpUp = Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W);
-        bool slideDown = Input.GetKeyDown(KeyCode.DownArrow);
-        bool slideUp = Input.GetKeyUp(KeyCode.DownArrow);
+        bool slideDown = Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S);
+        bool slideUp = Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S);
 
         if (anim.GetBool("Die") == true)
         {
@@ -146,41 +147,27 @@ public class Jump : MonoBehaviour {
             }
         }
         ////////////////////////// JUMP ////////////////////////////////
-        if (button.Up == "W")
-        {
-            if (Input.GetKeyDown(KeyCode.W) && grounded == true && anim.GetBool("Fall") == false && Time.timeScale > 0)
+        if (jumpDown && grounded == true && anim.GetBool("Fall") == false && Time.timeScale > 0 && controlJump == true)
             {
                 anim.SetBool("Jump", true);
                 jump.Play();
                 GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVel;
+                controlJump = false;
             }
 
-            if (Input.GetKeyUp(KeyCode.W) && anim.GetBool("Jump") == true)
+            if (jumpUp && anim.GetBool("Jump") == true)
             {
                 grounded = false;
+               
             }
-        }
+            
+            if(anim.GetBool("Jump") == false)
+                controlJump = true;
 
-        if (button.Up == "UpArrow")
-        {
-            if (Input.GetKeyDown(KeyCode.UpArrow) && grounded == true && anim.GetBool("Fall") == false && Time.timeScale > 0)
-            {
-                anim.SetBool("Jump", true);
-                jump.Play();
-                GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVel;
-            }
-
-            if (Input.GetKeyUp(KeyCode.UpArrow) && anim.GetBool("Jump") == true)
-            {
-                grounded = false;
-            }
-        }
         ////////////////////////// SLIDE ////////////////////////////////
-        if (button.Down == "S")
-        {
-            if (SlideEnabled == true && Time.timeScale > 0)
+        if (SlideEnabled == true && Time.timeScale > 0)
             {
-                if (Input.GetKeyDown(KeyCode.S) && grounded == true && anim.GetBool("Fall") == false && timerCD == 0)
+                if (slideDown && grounded == true && anim.GetBool("Fall") == false && timerCD == 0)
                 {
                     //MoveEnabled = false;
                     slide.Play();
@@ -208,7 +195,7 @@ public class Jump : MonoBehaviour {
                     controleCD = false;
                 }
 
-                if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyDown(KeyCode.W) || timer > 1f && anim.GetBool("Fall") == false)
+                if (slideUp ||jumpDown || timer > 1f && anim.GetBool("Fall") == false)
                 {
                     //MoveEnabled = true;
                     slide.Stop();
@@ -219,53 +206,9 @@ public class Jump : MonoBehaviour {
                     controle = false;
                 }
             }
+
         }
-
-        if (button.Down == "DownArrow")
-        {
-            if (SlideEnabled == true && Time.timeScale > 0)
-            {
-                if (Input.GetKeyDown(KeyCode.DownArrow) && grounded == true && anim.GetBool("Fall") == false && timerCD == 0)
-                {
-                    //MoveEnabled = false;
-                    slide.Play();
-                    anim.SetBool("Slide", true);
-                    transform.position = new Vector3(transform.position.x, transform.position.y - 0.3f, transform.position.z);
-                    GetComponent<BoxCollider2D>().offset = new Vector2(0.01091599f, -0.1300174f);
-                    GetComponent<BoxCollider2D>().size = new Vector2(1.055252f, 0.4266595f);
-                    controle = true;
-                    controleCD = true;
-                }
-
-                if (controle == true)
-                {
-                    timer += Time.deltaTime;
-                }
-
-                if (controleCD == true)
-                {
-                    timerCD += Time.deltaTime;
-                }
-
-                if (timerCD > 0.5f)
-                {
-                    timerCD = 0;
-                    controleCD = false;
-                }
-
-                if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.UpArrow) || timer > 1f && anim.GetBool("Fall") == false)
-                {
-                    //MoveEnabled = true;
-                    slide.Stop();
-                    anim.SetBool("Slide", false);
-                    GetComponent<BoxCollider2D>().offset = new Vector2(-0.005492329f, -0.02196747f);
-                    GetComponent<BoxCollider2D>().size = new Vector2(0.5390164f, 1.126065f);
-                    timer = 0;
-                    controle = false;
-                }
-            }
-        }
-    }
+    
 
     void OnCollisionEnter2D(Collision2D collision)
     {
