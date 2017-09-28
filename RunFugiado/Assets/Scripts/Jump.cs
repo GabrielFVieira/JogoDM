@@ -221,6 +221,7 @@ public class Jump : MonoBehaviour {
         if(collision.gameObject.tag == "Box")
         {
             timerRun = 0;
+            move = false;
         }
     }
    
@@ -237,6 +238,7 @@ public class Jump : MonoBehaviour {
         if (collision.gameObject.tag == "Pneu")
         {
             timerRun = 0;
-        }
+            move = false;
+        }        
     }
 }
