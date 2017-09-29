@@ -77,8 +77,13 @@ public class Parallax : MonoBehaviour {
 
             if (manager.gameTimer >= 100 && manager.gameTimer < 120)
                 parallaxVel = 9f;
+
+            if (manager.gameTimer >= 120)
+                parallaxVel = 0;
         }
         else
             parallaxVel = 0;
-	}
+
+       
+    }
 }
