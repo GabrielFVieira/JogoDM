@@ -11,11 +11,13 @@ public class Parallax : MonoBehaviour {
 
     public GameObject cam;
 
+    public Sprite[] bg;
+
     public LevelManager manager;
 	// Use this for initialization
 	void Start () {
-        minX = -27.36997f;
-        startX = 10.67622f;
+        /*minX = -27.36997f;
+        startX = 10.67622f;*/
         cam = GameObject.FindGameObjectWithTag("MainCamera");
         manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>();
     }
@@ -30,9 +32,20 @@ public class Parallax : MonoBehaviour {
             {
                 transform.position = new Vector3(cam.transform.position.x + (GetComponent<SpriteRenderer>().bounds.size.x) - parallaxVel * Time.deltaTime, transform.position.y, transform.position.z);
             }*/
-            
-            if (transform.position.x < minX)
-                transform.position = new Vector3(startX, transform.position.y);
+
+            if (transform.localPosition.x < minX)
+            {
+                if (GetComponent<SpriteRenderer>().sprite == bg[0])
+                    GetComponent<SpriteRenderer>().sprite = bg[2];
+
+                else if (GetComponent<SpriteRenderer>().sprite == bg[1])
+                    GetComponent<SpriteRenderer>().sprite = bg[0];
+
+                else if (GetComponent<SpriteRenderer>().sprite == bg[2])
+                    GetComponent<SpriteRenderer>().sprite = bg[1];
+
+                transform.localPosition = new Vector3(startX, 4.33f);
+            }
             
             if(manager.gameTimer >=  20 && manager.gameTimer < 40)
                 parallaxVel = 5.8f;
