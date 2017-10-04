@@ -76,10 +76,13 @@ public class ObstacleManager : MonoBehaviour {
             else if (transform.position.x < -15.3f && GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().gameTimer >= GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().MaxTime)
                 move = false;
             
-            if(timer > 1f)
+            if(timer > 1f && gameObject.tag != "Sign")
             {
                 Destroy(gameObject);
             }
+
+            else if(timer > 4f)
+                Destroy(gameObject);
         }
 
         if (collision.gameObject.tag == "Player" && gameObject.tag == "Pneu")
