@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Sign : MonoBehaviour
 {
+    public float timer;
+    public bool controle;
+
     public Sprite[] breaks;
 
     public SpriteRenderer front;
@@ -16,15 +19,26 @@ public class Sign : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (controle == true)
+            timer += Time.deltaTime;
 
+        if(timer > 0.2f)
+        {
+            GetComponent<Animator>().enabled = false;
+            front.GetComponent<Animator>().enabled = false;
+
+            GetComponent<SpriteRenderer>().sprite = breaks[1];
+            front.GetComponent<SpriteRenderer>().sprite = breaks[0];
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Tank")
         {
-            GetComponent<SpriteRenderer>().sprite = breaks[1];
-            front.GetComponent<SpriteRenderer>().sprite = breaks[0];
+            controle = true;
+            GetComponent<Animator>().enabled = true;
+            front.GetComponent<Animator>().enabled = true;
             GetComponent<AudioSource>().Play();
         }
     }

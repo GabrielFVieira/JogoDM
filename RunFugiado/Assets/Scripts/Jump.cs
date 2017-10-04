@@ -98,7 +98,7 @@ public class Jump : MonoBehaviour {
         if(GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().gameTimer >= GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().MaxTime - 5 && GameObject.FindGameObjectWithTag("Tank").transform.position.x >= -21.5f && anim.GetBool("Die") == false)
             GameObject.FindGameObjectWithTag("Tank").transform.Translate(-vel * Time.deltaTime, 0, 0);
 
-        if (GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().gameTimer >= GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().MaxTime)
+        if (GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().gameTimer >= GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().MaxTime && anim.GetBool("Die") == false)
             {
                 if (anim.GetBool("Col") == false)
                     transform.Translate(vel * 0.8f * Time.deltaTime, 0, 0);

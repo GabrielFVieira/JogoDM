@@ -8,6 +8,7 @@ public class ObstacleManager : MonoBehaviour {
     public bool move;
 
     public Sprite fallTire;
+    public Sprite destroyedTire;
 
     public float timer;
 	// Use this for initialization
@@ -65,7 +66,7 @@ public class ObstacleManager : MonoBehaviour {
                 transform.position = new Vector3(transform.position.x, -4.087f, transform.position.z);
                 GetComponentInChildren<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                 GetComponentInChildren<Pneu>().enabled = false;
-                GetComponentInChildren<SpriteRenderer>().sprite = fallTire;
+                GetComponentInChildren<SpriteRenderer>().sprite = destroyedTire;
                 transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, 0);
                 GetComponent<CircleCollider2D>().enabled = false;
                 Vel = GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel;
@@ -76,7 +77,7 @@ public class ObstacleManager : MonoBehaviour {
             else if (transform.position.x < -15.3f && GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().gameTimer >= GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().MaxTime)
                 move = false;
             
-            if(timer > 1f && gameObject.tag != "Sign")
+            if(timer > 0.6f && gameObject.tag != "Sign")
             {
                 Destroy(gameObject);
             }
