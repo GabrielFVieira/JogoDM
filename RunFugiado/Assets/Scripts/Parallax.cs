@@ -34,7 +34,7 @@ public class Parallax : MonoBehaviour {
             transform.Translate(new Vector3(-parallaxVel, 0, 0) * Time.deltaTime);
 
             if (transform.localPosition.x < minX)
-            {
+            {/*
                 if (GetComponent<SpriteRenderer>().sprite == bg[0])
                     GetComponent<SpriteRenderer>().sprite = bg[2];
 
@@ -43,8 +43,8 @@ public class Parallax : MonoBehaviour {
 
                 else if (GetComponent<SpriteRenderer>().sprite == bg[2])
                     GetComponent<SpriteRenderer>().sprite = bg[1];
-
-                transform.localPosition = new Vector3(startX, 4.33f);
+                */
+                transform.localPosition = new Vector3(startX, 1.27f);
             }
                
                 if (manager.gameTimer >= 20 && manager.gameTimer < 40)

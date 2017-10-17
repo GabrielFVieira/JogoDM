@@ -44,16 +44,16 @@ public class ObstacleSpawn : MonoBehaviour {
         maxTimer = 2.5f;
 
         boxPosX = 2f;
-        boxPosY = -3.772897f;
+        boxPosY = -3.705f;
 
         tirePosX = 2f;
-        tirePosY = -3.763f;
+        tirePosY = -3.723f;
 
         signPosX = 2.8f;
-        signPosY = -2.88f;
+        signPosY = -3.13f;
 
         explodePosX = 2f;
-        explodePosY = -3.8f;
+        explodePosY = -3.785f;
 
         missilePosX = 10f;
 

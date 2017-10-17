@@ -36,7 +36,7 @@ public class EndText : MonoBehaviour {
             vel = 350;
         }
 
-        if (GetComponent<RectTransform>().localPosition.y >= GetComponent<RectTransform>().rect.height / 2)
+        if (GetComponent<RectTransform>().localPosition.y >= GetComponent<RectTransform>().rect.height / 2 + 30)
         {
             timer += Time.deltaTime;
 
