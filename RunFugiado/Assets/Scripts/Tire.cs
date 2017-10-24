@@ -18,6 +18,9 @@ public class Tire : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Tank")
         {
+            if (transform.position.x < -18.5f)
+                GetComponent<AudioSource>().volume = 0.6f;
+
             GetComponent<AudioSource>().Play();
         }
     }

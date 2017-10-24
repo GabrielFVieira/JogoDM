@@ -8,8 +8,13 @@ public class Collisions : MonoBehaviour {
 
     public float timer;
     public bool controle;
-	// Use this for initialization
-	void Start () {
+
+	public bool controle2;
+	public bool colSign;
+
+    public bool controle3;
+    // Use this for initialization
+    void Start () {
         animo = GetComponent<Animator>();
 	}
 	
@@ -17,8 +22,39 @@ public class Collisions : MonoBehaviour {
 	void Update () {
 		if(animo.GetBool("Col") == true)
         {
-            transform.Translate(-bg.parallaxVel * Time.deltaTime, 0, 0);
+			bg.parallaxVel = 0;
+			controle2 = true;
+            //transform.Translate(-bg.parallaxVel * Time.deltaTime, 0, 0);
         }
+
+        if (animo.GetBool("Fall") == true)
+        {
+            bg.parallaxVel = 0;
+            controle3 = true;
+            //transform.Translate(-bg.parallaxVel * Time.deltaTime, 0, 0);
+        }
+
+        if (animo.GetBool("Fall") == false && controle3 == true)
+        {
+            bg.parallaxVel = 4;
+            controle3 = false;
+            //transform.Translate(-bg.parallaxVel * Time.deltaTime, 0, 0);
+        }
+
+        if (animo.GetBool("Col") == false && transform.position.y > -2.5f && controle2 == true && colSign == false)
+		{
+			bg.parallaxVel = 4;
+			controle2 = false;
+			//transform.Translate(-bg.parallaxVel * Time.deltaTime, 0, 0);
+		}
+
+		if(animo.GetBool("Col") == false && colSign == true && controle2 == true)
+		{
+			bg.parallaxVel = 4;
+			colSign = false;
+			controle2 = false;
+			//transform.Translate(-bg.parallaxVel * Time.deltaTime, 0, 0);
+		}
 
         if (animo.GetBool("Jump") == true || animo.GetBool("Slide") == true)
         {
@@ -28,11 +64,12 @@ public class Collisions : MonoBehaviour {
         if (controle == true)
         {
             timer += Time.deltaTime;
-            transform.Translate(-bg.parallaxVel * Time.deltaTime, 0, 0);
+            //transform.Translate(-bg.parallaxVel * Time.deltaTime, 0, 0);
         }
 
         if(timer > 0.5f)
         {
+			bg.parallaxVel -= 1f;
             animo.SetBool("Fall", false);
             timer = 0;
             controle = false;
@@ -41,8 +78,8 @@ public class Collisions : MonoBehaviour {
 
     public void OnCollisionEnter2D(Collision2D col)
     {
-        if(GetComponent<Jump>().controle == false && GetComponent<Jump>().grounded == true)
-        if(col.gameObject.tag == "Box")
+        if (GetComponent<Jump>().controle == false && GetComponent<Jump>().grounded == true)
+        if(col.gameObject.tag == "Box" && transform.position.y < -2.45f)
         {
             animo.SetBool("Col", true);
         }
@@ -76,6 +113,7 @@ public class Collisions : MonoBehaviour {
     {
         if (col.gameObject.tag == "Sign" && animo.GetBool("Jump") == false)
         {
+			colSign = true;
             animo.SetBool("Col", true);
         }
     }

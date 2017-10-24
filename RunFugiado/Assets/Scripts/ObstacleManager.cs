@@ -11,8 +11,9 @@ public class ObstacleManager : MonoBehaviour {
     public Sprite destroyedTire;
 
     public float timer;
-	// Use this for initialization
-	void Start () {
+    public float timer2;
+    // Use this for initialization
+    void Start () {
         move = true;
 
         if (gameObject.tag == "Pneu")
@@ -26,11 +27,23 @@ public class ObstacleManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(GetComponentInChildren<SpriteRenderer>().sprite == destroyedTire)
+        {
+            timer2 += Time.deltaTime;
+        }
+
+        if (transform.position.x < -21 || timer2 > 0.3f)
+            Destroy(gameObject);
+
         if (move == true && GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Die") == false)
         {
             if (gameObject.tag == "Pneu" && GetComponentInChildren<SpriteRenderer>().sprite != fallTire)
             {
-                Vel = GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel * 1.4f;
+                if(GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel == 0)
+                    Vel = GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel = 2f;
+
+                if (GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel > 0)
+                    Vel = GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel * 1.4f;
             }
 
             else
@@ -70,8 +83,10 @@ public class ObstacleManager : MonoBehaviour {
                 transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, 0);
                 GetComponent<CircleCollider2D>().enabled = false;
                 Vel = GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel;
-                if (transform.position.x < -16f)
-                    move = false;
+				if (transform.position.x < -16f || GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().GetBool ("Die") == true) {
+					move = false;
+					Vel = 0;
+				}
             }
             
             else if (transform.position.x < -15.3f && GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().gameTimer >= GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().MaxTime)
@@ -86,20 +101,22 @@ public class ObstacleManager : MonoBehaviour {
                 Destroy(gameObject);
         }
 
-        if (collision.gameObject.tag == "Player" && gameObject.tag == "Pneu")
+		if (gameObject.tag == "Pneu")
         {
-            transform.position = new Vector3(transform.position.x, -4.087f, transform.position.z);
-            GetComponentInChildren<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-            transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, 0);
-            GetComponentInChildren<SpriteRenderer>().sprite = fallTire;
-            //transform.position = new Vector3(transform.position.x, transform.position.y - 0.1f, transform.position.z);
-            GetComponent<BoxCollider2D>().enabled = true;
-            GetComponent<CircleCollider2D>().enabled = false;
+			if (GetComponentInChildren<Pneu> ().col == true) {
+				transform.position = new Vector3 (transform.position.x, -4.087f, transform.position.z);
+				GetComponentInChildren<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeAll;
+				transform.GetChild (0).transform.rotation = Quaternion.Euler (0, 0, 0);
+				GetComponentInChildren<SpriteRenderer> ().sprite = fallTire;
+				//transform.position = new Vector3(transform.position.x, transform.position.y - 0.1f, transform.position.z);
+				GetComponent<BoxCollider2D> ().enabled = true;
+				GetComponent<CircleCollider2D> ().enabled = false;
 
-            transform.GetChild(0).GetComponent<Collider2D>().enabled = false;
-            GetComponentInChildren<Pneu>().enabled = false;
+				transform.GetChild (0).GetComponent<Collider2D> ().enabled = false;
+				GetComponentInChildren<Pneu> ().enabled = false;
 
-            Vel = GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel;
+				Vel = GameObject.Find ("Bg").GetComponent<Parallax> ().parallaxVel;
+			}
         }
     }
 }

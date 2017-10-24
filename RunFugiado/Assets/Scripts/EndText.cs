@@ -23,7 +23,7 @@ public class EndText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Translate(0, vel * Time.deltaTime, 0);
+       // transform.Translate(0, vel * Time.deltaTime, 0);
 
         if (timer > 0.1f && col.a < 1)
         {
@@ -36,8 +36,8 @@ public class EndText : MonoBehaviour {
             vel = 350;
         }
 
-        if (GetComponent<RectTransform>().localPosition.y >= GetComponent<RectTransform>().rect.height / 2 + 30)
-        {
+       /* if (GetComponent<RectTransform>().localPosition.y >= 350)
+        {*/
             timer += Time.deltaTime;
 
             foreach(GameObject go in obj)
@@ -47,6 +47,6 @@ public class EndText : MonoBehaviour {
             }
 
             vel = 0;
-        }
+        //}
 	}
 }

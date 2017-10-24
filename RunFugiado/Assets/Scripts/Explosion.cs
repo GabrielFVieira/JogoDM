@@ -27,6 +27,9 @@ public class Explosion : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player")
         {
+            if (transform.position.x < -18.5f)
+                explosion.volume = 0.3f;
+
             explosion.Play();
             GetComponent<Animator>().SetBool("Explode", true);
             transform.localScale = new Vector3(1, 1, 1);
@@ -40,6 +43,9 @@ public class Explosion : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Tank")
         {
+            if (transform.position.x < -18.5f)
+               explosion.volume = 0.3f;
+
             explosion.Play();
             GetComponent<Animator>().SetBool("Explode", true);
             transform.localScale = new Vector3(1, 1, 1);

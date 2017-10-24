@@ -39,6 +39,9 @@ public class Missile : MonoBehaviour {
     {
         if(col.gameObject.tag == "Player")
         {
+            if (transform.position.x < -18.5f)
+                GetComponent<AudioSource>().volume = 0.3f;
+
             explosion.Play();
             transform.position = col.transform.position;
             GetComponent<Animator>().SetBool("Explode", true);

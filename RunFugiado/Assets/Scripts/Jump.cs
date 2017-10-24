@@ -33,6 +33,7 @@ public class Jump : MonoBehaviour {
     public AudioSource jump;
     public AudioSource slide;
 
+    public bool colBox;
 	// Use this for initialization
 	void Start () {
         moveVel = 1f;
@@ -71,7 +72,7 @@ public class Jump : MonoBehaviour {
             anim.enabled = false;
             GetComponent<SpriteRenderer>().sprite = dead;
         }
-
+		/*
         if (anim.GetBool("Die") == false)
         {
             if (transform.position.x < -6.84f)
@@ -93,7 +94,7 @@ public class Jump : MonoBehaviour {
         if (move == true && anim.GetBool("Die") == false)// && anim.GetBool("Slide") == false && anim.GetBool("Jump") == false)
         {
             transform.Translate(moveVel * Time.deltaTime, 0, 0);
-        }
+        }*/
 
         if(GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().gameTimer >= GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelManager>().MaxTime - 5 && GameObject.FindGameObjectWithTag("Tank").transform.position.x >= -21.5f && anim.GetBool("Die") == false)
             GameObject.FindGameObjectWithTag("Tank").transform.Translate(-vel * Time.deltaTime, 0, 0);
@@ -130,7 +131,7 @@ public class Jump : MonoBehaviour {
 
             if (Input.GetKeyUp(KeyCode.D) && moveVel > 0)
                 move = false;
-
+			
             if (move == true)// && anim.GetBool("Slide") == false && anim.GetBool("Jump") == false)
             {
                 transform.Translate(moveVel * Time.deltaTime, 0, 0);
@@ -165,7 +166,7 @@ public class Jump : MonoBehaviour {
                 controlJump = true;
 
         ////////////////////////// SLIDE ////////////////////////////////
-        if (SlideEnabled == true && Time.timeScale > 0)
+        if (SlideEnabled == true && Time.timeScale > 0 && GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel != 0)
             {
                 if (slideDown && grounded == true && anim.GetBool("Fall") == false && timerCD == 0)
                 {
@@ -195,7 +196,7 @@ public class Jump : MonoBehaviour {
                     controleCD = false;
                 }
 
-                if (slideUp ||jumpDown || timer > 1f && anim.GetBool("Fall") == false)
+                if (slideUp ||jumpDown || timer > 1f && anim.GetBool("Fall") == false || colBox == true)
                 {
                     //MoveEnabled = true;
                     slide.Stop();
@@ -222,9 +223,18 @@ public class Jump : MonoBehaviour {
         {
             timerRun = 0;
             move = false;
+            colBox = true;
         }
     }
-   
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Box")
+        {
+            colBox = false;
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Tank")

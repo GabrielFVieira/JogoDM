@@ -6,6 +6,8 @@ public class Pneu : MonoBehaviour {
     public float vel;
     public bool controle;
 
+	public bool col;
+
     public ObstacleManager move;
 	// Use this for initialization
 	void Start () {
@@ -21,8 +23,9 @@ public class Pneu : MonoBehaviour {
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Box")
+        if(collision.gameObject.tag != "Floor")
         {
+			col = true;
             controle = false;
         }
     }

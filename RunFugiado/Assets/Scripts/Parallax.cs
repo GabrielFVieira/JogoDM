@@ -15,59 +15,62 @@ public class Parallax : MonoBehaviour {
 
     public LevelManager manager;
 
-    void Start () {
+    public float newPosition;
 
+    public Vector3 startPosition;
+    void Start () {
+        startPosition = transform.localPosition;
     }
 	
 	// Update is called once per frame
 	void Update () {
 
 
-        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Die") == false)
-        {
-            // METODO DAYVID 
-            /*if (transform.position.x < Mathf.Round(minX))
+		if (GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().GetBool ("Die") == false) {/*
+			newPosition = Mathf.Repeat (Time.time * parallaxVel * 0.71f, minX);
+			transform.localPosition = startPosition + Vector3.left * newPosition;
+			*/
+			if (transform.localPosition.x < -18.3f)
+			{
+				transform.localPosition = new Vector3(transform.localPosition.x + 22.679995f ,startPosition.y, startPosition.z);
+			}
+
+			transform.Translate (-parallaxVel * Time.deltaTime, 0, 0);
+
+			Mathf.Clamp (transform.localPosition.x, -18.3f, 4.3f);
+			// METODO DAYVID 
+			/*if (transform.position.x < Mathf.Round(minX))
             {
                 transform.position = new Vector3(Mathf.Round(startX), 0, 0);
             }*/
-
+			/*
             transform.Translate(new Vector3(-parallaxVel, 0, 0) * Time.deltaTime);
 
-            if (transform.localPosition.x < minX)
-            {/*
-                if (GetComponent<SpriteRenderer>().sprite == bg[0])
-                    GetComponent<SpriteRenderer>().sprite = bg[2];
+            if (transform.localPosition.x <= minX)
+            {
+                Debug.Log(transform.localPosition.x);
+                transform.localPosition = new Vector3(startX + (-parallaxVel * Time.deltaTime), 1.27f);
+            }*/
+			if (Time.timeScale > 0) {
+				if (parallaxVel > 0 && parallaxVel < 5)
+					parallaxVel += 0.05f;
 
-                else if (GetComponent<SpriteRenderer>().sprite == bg[1])
-                    GetComponent<SpriteRenderer>().sprite = bg[0];
+				if (parallaxVel >= 5 && parallaxVel < 8 && manager.gameTimer < 20)
+					parallaxVel += 0.0005f;
 
-                else if (GetComponent<SpriteRenderer>().sprite == bg[2])
-                    GetComponent<SpriteRenderer>().sprite = bg[1];
-                */
-                transform.localPosition = new Vector3(startX, 1.27f);
-            }
-               
-                if (manager.gameTimer >= 20 && manager.gameTimer < 40)
-                parallaxVel = 5.8f;
+				if (parallaxVel >= 5 && parallaxVel < 8 && manager.gameTimer >= 20 && manager.gameTimer < 40)
+					parallaxVel += 0.0008f;
 
-            if (manager.gameTimer >= 40 && manager.gameTimer < 60)
-                parallaxVel = 6.6f;
+				if (parallaxVel >= 5 && parallaxVel < 8 && manager.gameTimer >= 40 && manager.gameTimer < 80)
+					parallaxVel += 0.0011f;
 
-            if (manager.gameTimer >= 60 && manager.gameTimer < 80)
-                parallaxVel = 7.4f;
+				if (parallaxVel >= 5 && parallaxVel < 8 && manager.gameTimer >= 80 && manager.gameTimer < 120)
+					parallaxVel += 0.0015f;
 
-            if (manager.gameTimer >= 80 && manager.gameTimer < 100)
-                parallaxVel = 8.2f;
-
-            if (manager.gameTimer >= 100 && manager.gameTimer < 120)
-                parallaxVel = 9f;
-
-            if (manager.gameTimer >= 120)
-                parallaxVel = 0;
-        }
-        else
-            parallaxVel = 0;
-
+				if (manager.gameTimer >= 120)
+					parallaxVel = 0;
+			}
+		}
        
     }
 }

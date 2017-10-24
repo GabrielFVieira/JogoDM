@@ -65,7 +65,9 @@ public class ObstacleSpawn : MonoBehaviour {
         {
             gameTimer += Time.deltaTime;
             difficultTimer += Time.deltaTime;
-            timer += Time.deltaTime;
+            
+			if(GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel > 0)
+			timer += Time.deltaTime;
 
             if (difficultTimer > 30f)
             {
@@ -93,7 +95,7 @@ public class ObstacleSpawn : MonoBehaviour {
 
             maxTimer = delay;
 
-            if (timer > maxTimer && manager.gameTimer <= manager.MaxTime)
+            if (timer > maxTimer && manager.gameTimer <= manager.MaxTime - 4)
             {
                 random = Random.Range(0, 5);
 

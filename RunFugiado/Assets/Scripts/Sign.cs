@@ -19,6 +19,9 @@ public class Sign : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (transform.position.x < -18.5f)
+            GetComponent<AudioSource>().volume = 0.2f;
+
         if (controle == true)
             timer += Time.deltaTime;
 

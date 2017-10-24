@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour {
     public float distance;
     public float distanceInt;
 
-    public float MaxTime = 60;
+    public float MaxTime;
 
     public Text text;
 
@@ -20,6 +20,8 @@ public class LevelManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         vol = AudioListener.volume;
+
+		MaxTime = 120;
 
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
@@ -61,14 +63,9 @@ public class LevelManager : MonoBehaviour {
             Time.timeScale = 1;
             AudioListener.volume = vol;
         }
-        if(gameTimer >= MaxTime)
+		if(gameTimer >= MaxTime)
         {
-            foreach (Parallax go in bg)
-            {
-                go.parallaxVel = 0;
-            }
-
-            if(GameObject.FindGameObjectWithTag("Player").transform.position.x > 0)
+            if(GameObject.FindGameObjectWithTag("Player").transform.position.x > 1)
                 SceneManager.LoadScene("EndGame");
         }
 

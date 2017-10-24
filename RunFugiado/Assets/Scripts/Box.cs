@@ -27,6 +27,9 @@ public class Box : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Tank")
         {
+            if (transform.position.x < -18.5f)
+                GetComponent<AudioSource>().volume = 0.15f;
+
             controle = true;
             GetComponent<AudioSource>().Play();
             GetComponent<Animator>().enabled = true;
