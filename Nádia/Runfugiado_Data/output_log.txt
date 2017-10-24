@@ -1,0 +1,62 @@
+Initialize engine version: 5.5.0f3 (38b4efef76f0)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 460 (ID=0xe22)
+    Vendor:   NVIDIA
+    VRAM:     979 MB
+    Driver:   22.21.13.8233
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\Runfugiado_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\Runfugiado_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\Runfugiado_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\Runfugiado_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\Runfugiado_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\Runfugiado_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\Runfugiado_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\Runfugiado_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\Runfugiado_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\Runfugiado_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\Runfugiado_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\Runfugiado_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.074 seconds
+Platform assembly: D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\Runfugiado_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\Runfugiado_Data\Managed\System.dll (this message is harmless)
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initialized touch support.
+UnloadTime: 1.382890 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.305659 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 316.
+Total: 0.257180 ms (FindLiveObjects: 0.035533 ms CreateObjectMapping: 0.037863 ms MarkObjects: 0.164269 ms  DeleteObjects: 0.017766 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.542790 ms
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 332.
+Total: 0.246112 ms (FindLiveObjects: 0.020679 ms CreateObjectMapping: 0.018057 ms MarkObjects: 0.170385 ms  DeleteObjects: 0.036407 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.474749 ms
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 316.
+Total: 0.311063 ms (FindLiveObjects: 0.040193 ms CreateObjectMapping: 0.044853 ms MarkObjects: 0.209705 ms  DeleteObjects: 0.015145 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.364363 ms
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 332.
+Total: 0.275238 ms (FindLiveObjects: 0.044271 ms CreateObjectMapping: 0.041649 ms MarkObjects: 0.174463 ms  DeleteObjects: 0.013689 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.379799 ms
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 316.
+Total: 0.214365 ms (FindLiveObjects: 0.016019 ms CreateObjectMapping: 0.018349 ms MarkObjects: 0.164269 ms  DeleteObjects: 0.015145 ms)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 1d30 -> priority: 1 
+  Thread -> id: 1f7c -> priority: 1 
