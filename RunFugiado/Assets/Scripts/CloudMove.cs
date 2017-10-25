@@ -17,7 +17,7 @@ public class CloudMove : MonoBehaviour {
             vel = day.vel * 0.05f;
             transform.Translate(-vel, 0, 0);
         }
-		if (GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Die") == true && Time.timeScale > 0 || GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Col") == true &&  GameObject.FindGameObjectWithTag("Player").transform.position.y < -2f || GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Fall") == true)
+		if (GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Die") == true && Time.timeScale > 0 || GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Col") == true &&  GameObject.FindGameObjectWithTag("Player").transform.position.y < -2f && Time.timeScale > 0 || GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Fall") == true && Time.timeScale > 0)
 
         {
             vel = day.vel * 0.02f;
