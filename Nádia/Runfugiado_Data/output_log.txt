@@ -26,49 +26,31 @@ Platform assembly: D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\runfugiado
 <RI> Input initialized.
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initialized touch support.
-UnloadTime: 1.397451 ms
+UnloadTime: 1.273085 ms
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.918573 ms
+UnloadTime: 4.294589 ms
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 316.
-Total: 0.223394 ms (FindLiveObjects: 0.017475 ms CreateObjectMapping: 0.017475 ms MarkObjects: 0.170676 ms  DeleteObjects: 0.017184 ms)
-
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.539585 ms
-
-Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 514.
-Total: 0.353003 ms (FindLiveObjects: 0.035242 ms CreateObjectMapping: 0.020096 ms MarkObjects: 0.273199 ms  DeleteObjects: 0.023591 ms)
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 317.
+Total: 0.311354 ms (FindLiveObjects: 0.042814 ms CreateObjectMapping: 0.053008 ms MarkObjects: 0.202423 ms  DeleteObjects: 0.011650 ms)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.499797 ms
+UnloadTime: 1.262018 ms
 
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 663.
-Total: 0.312227 ms (FindLiveObjects: 0.033785 ms CreateObjectMapping: 0.031455 ms MarkObjects: 0.227763 ms  DeleteObjects: 0.018057 ms)
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 516.
+Total: 0.360576 ms (FindLiveObjects: 0.042814 ms CreateObjectMapping: 0.020679 ms MarkObjects: 0.277568 ms  DeleteObjects: 0.018640 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.508535 ms
+
+Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 657.
+Total: 0.322130 ms (FindLiveObjects: 0.036989 ms CreateObjectMapping: 0.031747 ms MarkObjects: 0.234753 ms  DeleteObjects: 0.018057 ms)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.613387 ms
+UnloadTime: 0.572320 ms
 
-Unloading 228 unused Assets to reduce memory usage. Loaded Objects now: 320.
-Total: 2.081614 ms (FindLiveObjects: 0.045436 ms CreateObjectMapping: 0.031455 ms MarkObjects: 0.190773 ms  DeleteObjects: 1.812493 ms)
-
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.412711 ms
-
-Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 514.
-Total: 0.336110 ms (FindLiveObjects: 0.034077 ms CreateObjectMapping: 0.020388 ms MarkObjects: 0.263587 ms  DeleteObjects: 0.016892 ms)
-
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.514360 ms
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 663.
-Total: 0.351547 ms (FindLiveObjects: 0.040484 ms CreateObjectMapping: 0.032620 ms MarkObjects: 0.253393 ms  DeleteObjects: 0.024465 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.616882 ms
-
-Unloading 228 unused Assets to reduce memory usage. Loaded Objects now: 320.
-Total: 2.019577 ms (FindLiveObjects: 0.035242 ms CreateObjectMapping: 0.031164 ms MarkObjects: 0.183200 ms  DeleteObjects: 1.769387 ms)
+Unloading 221 unused Assets to reduce memory usage. Loaded Objects now: 321.
+Total: 2.255788 ms (FindLiveObjects: 0.060290 ms CreateObjectMapping: 0.071066 ms MarkObjects: 0.181162 ms  DeleteObjects: 1.942103 ms)
 
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 299c -> priority: 1 
-  Thread -> id: 890 -> priority: 1 
+  Thread -> id: 355c -> priority: 1 
+  Thread -> id: 1950 -> priority: 1 
