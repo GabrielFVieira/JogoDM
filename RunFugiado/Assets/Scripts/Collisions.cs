@@ -67,7 +67,7 @@ public class Collisions : MonoBehaviour {
             //transform.Translate(-bg.parallaxVel * Time.deltaTime, 0, 0);
         }
 
-        if(timer > 0.5f)
+        if(timer > 0.3f)
         {
 			bg.parallaxVel -= 1f;
             animo.SetBool("Fall", false);
@@ -103,28 +103,35 @@ public class Collisions : MonoBehaviour {
             controle = true;
         }
 
-        if (col.gameObject.tag == "Sign" && animo.GetBool("Jump") == false)
+        if (col.gameObject.tag == "Sign" && animo.GetBool("Slide") == false)
         {
-            animo.SetBool("Col", true);
+            animo.SetBool("Fall", true);
+            col.GetComponent<Animator>().enabled = true;
+            col.GetComponents<Collider2D>()[0].enabled = false;
+            col.GetComponents<Collider2D>()[1].enabled = false;
+            controle = true;
         }
     }
-
+    /*
     public void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Sign" && animo.GetBool("Jump") == false)
+        if (col.gameObject.tag == "Sign" && animo.GetBool("Slide") == false)
         {
-			colSign = true;
-            animo.SetBool("Col", true);
+            animo.SetBool("Fall", true);
+            col.GetComponent<Animator>().enabled = true;
+            col.GetComponents<Collider2D>()[0].enabled = false;
+            col.GetComponents<Collider2D>()[1].enabled = false;
+            controle = true;
         }
     }
-
+    
     public void OnTriggerExit2D(Collider2D col)
     {
         if (col.gameObject.tag == "Sign")
         {
-            animo.SetBool("Col", false);
+            animo.SetBool("Fall", false);
         }
-    }
+    }*/
 
     public void OnCollisionExit2D(Collision2D col)
     {

@@ -54,6 +54,9 @@ public class Jump : MonoBehaviour {
 
         if (anim.GetBool("Die") == true)
         {
+            anim.enabled = false;
+            GetComponent<SpriteRenderer>().sprite = dead;
+
             if (transform.position.y > -3.33f && anim.GetBool("Slide") == false)
                 transform.Translate(0, -GetComponent<BetterJump>().fallVel * Time.deltaTime, 0);
 
@@ -62,15 +65,16 @@ public class Jump : MonoBehaviour {
                 transform.position = new Vector3(transform.position.x, -3.33f, transform.position.z);
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             }
-            dieTimer += Time.deltaTime;
+
+
+            transform.position = new Vector3(transform.position.x, -4.04f, transform.position.z);
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+
+
+           // dieTimer += Time.deltaTime;
             GetComponent<SpriteRenderer>().sortingOrder = GameObject.FindGameObjectWithTag("Tank").GetComponent<SpriteRenderer>().sortingOrder - 1;
            
-        }
-
-        if(dieTimer > 0.5f)
-        {
-            anim.enabled = false;
-            GetComponent<SpriteRenderer>().sprite = dead;
         }
 		/*
         if (anim.GetBool("Die") == false)

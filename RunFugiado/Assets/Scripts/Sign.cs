@@ -10,6 +10,8 @@ public class Sign : MonoBehaviour
     public Sprite[] breaks;
 
     public SpriteRenderer front;
+
+    public GameObject back;
     // Use this for initialization
     void Start()
     {
@@ -33,6 +35,9 @@ public class Sign : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = breaks[1];
             front.GetComponent<SpriteRenderer>().sprite = breaks[0];
         }
+
+        if (GetComponent<Animator>().enabled == true)
+           back.GetComponent<Animator>().enabled = true;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
