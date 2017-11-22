@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class EndText : MonoBehaviour {
     public GameObject[] obj;
+    public GameObject[] txt;
+    public int random;
     public float timer;
     public Color col;
 
@@ -14,7 +16,12 @@ public class EndText : MonoBehaviour {
         col.a = 0;
         col.r = col.g = col.b = 255;
 
-		foreach(GameObject go in obj)
+        random = Random.Range(0, txt.Length);
+
+        txt[random].SetActive(true);
+        txt[random].GetComponent<Image>().color = col;
+
+        foreach (GameObject go in obj)
         {
             go.SetActive(false);
             go.GetComponent<Image>().color = col;
@@ -40,11 +47,14 @@ public class EndText : MonoBehaviour {
         {*/
             timer += Time.deltaTime;
 
-            foreach(GameObject go in obj)
-            {
-                go.SetActive(true);
-                go.GetComponent<Image>().color = col;
-            }
+            txt[random].SetActive(true);
+            txt[random].GetComponent<Image>().color = col;
+
+            foreach (GameObject go in obj)
+                {
+                    go.SetActive(true);
+                    go.GetComponent<Image>().color = col;
+                }
 
             vel = 0;
         //}

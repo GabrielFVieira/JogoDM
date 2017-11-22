@@ -21,6 +21,9 @@ public class Sign : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GetComponent<Animator>().enabled == true)
+            GetComponent<AudioSource>().Play();
+
         if (transform.position.x < -18.5f)
             GetComponent<AudioSource>().volume = 0.2f;
 
@@ -42,7 +45,7 @@ public class Sign : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Tank")
+        if (collision.gameObject.tag == "Tank" || collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<Animator>().GetBool("Slide") == false)
         {
             controle = true;
             GetComponent<Animator>().enabled = true;

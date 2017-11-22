@@ -2,55 +2,55 @@ Initialize engine version: 5.5.0f3 (38b4efef76f0)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GTX 460 (ID=0xe22)
-    Vendor:   NVIDIA
-    VRAM:     979 MB
-    Driver:   22.21.13.8233
+    Renderer: AMD Radeon HD 6450 (ID=0x6779)
+    Vendor:   ATI
+    VRAM:     1008 MB
+    Driver:   15.201.1151.1008
 Begin MonoManager ReloadAssembly
-Platform assembly: D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\runfugiado_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\runfugiado_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\runfugiado_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\runfugiado_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\runfugiado_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\runfugiado_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\runfugiado_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\runfugiado_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\runfugiado_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
-Loading D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\runfugiado_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-Platform assembly: D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\runfugiado_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\runfugiado_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.042 seconds
-Platform assembly: D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\runfugiado_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: D:\Usuarios\Gabriel\Documents\GitHub\JogoDM\Nádia\runfugiado_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\gabriel.vieira\Desktop\JogoDM-master\Nádia\Runfugiado_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\gabriel.vieira\Desktop\JogoDM-master\Nádia\Runfugiado_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\gabriel.vieira\Desktop\JogoDM-master\Nádia\Runfugiado_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\gabriel.vieira\Desktop\JogoDM-master\Nádia\Runfugiado_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\gabriel.vieira\Desktop\JogoDM-master\Nádia\Runfugiado_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\gabriel.vieira\Desktop\JogoDM-master\Nádia\Runfugiado_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\gabriel.vieira\Desktop\JogoDM-master\Nádia\Runfugiado_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\gabriel.vieira\Desktop\JogoDM-master\Nádia\Runfugiado_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\gabriel.vieira\Desktop\JogoDM-master\Nádia\Runfugiado_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\gabriel.vieira\Desktop\JogoDM-master\Nádia\Runfugiado_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: C:\Users\gabriel.vieira\Desktop\JogoDM-master\Nádia\Runfugiado_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\gabriel.vieira\Desktop\JogoDM-master\Nádia\Runfugiado_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.044 seconds
+Platform assembly: C:\Users\gabriel.vieira\Desktop\JogoDM-master\Nádia\Runfugiado_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\gabriel.vieira\Desktop\JogoDM-master\Nádia\Runfugiado_Data\Managed\System.dll (this message is harmless)
 <RI> Initializing input.
 <RI> Input initialized.
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+desktop: 1440x900 60Hz; virtual: 1440x900 at 0,0
 <RI> Initialized touch support.
-UnloadTime: 1.273085 ms
+UnloadTime: 0.954181 ms
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.294589 ms
+UnloadTime: 3.158970 ms
 
 Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 317.
-Total: 0.311354 ms (FindLiveObjects: 0.042814 ms CreateObjectMapping: 0.053008 ms MarkObjects: 0.202423 ms  DeleteObjects: 0.011650 ms)
+Total: 0.175380 ms (FindLiveObjects: 0.022035 ms CreateObjectMapping: 0.033808 ms MarkObjects: 0.112292 ms  DeleteObjects: 0.006942 ms)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.262018 ms
+UnloadTime: 0.945729 ms
 
 Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 516.
-Total: 0.360576 ms (FindLiveObjects: 0.042814 ms CreateObjectMapping: 0.020679 ms MarkObjects: 0.277568 ms  DeleteObjects: 0.018640 ms)
+Total: 0.218848 ms (FindLiveObjects: 0.023846 ms CreateObjectMapping: 0.015696 ms MarkObjects: 0.167834 ms  DeleteObjects: 0.011470 ms)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.508535 ms
+UnloadTime: 0.404794 ms
 
-Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 657.
-Total: 0.322130 ms (FindLiveObjects: 0.036989 ms CreateObjectMapping: 0.031747 ms MarkObjects: 0.234753 ms  DeleteObjects: 0.018057 ms)
+Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 663.
+Total: 0.205868 ms (FindLiveObjects: 0.018413 ms CreateObjectMapping: 0.024450 ms MarkObjects: 0.147911 ms  DeleteObjects: 0.014187 ms)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.572320 ms
+UnloadTime: 0.596476 ms
 
-Unloading 221 unused Assets to reduce memory usage. Loaded Objects now: 321.
-Total: 2.255788 ms (FindLiveObjects: 0.060290 ms CreateObjectMapping: 0.071066 ms MarkObjects: 0.181162 ms  DeleteObjects: 1.942103 ms)
+Unloading 227 unused Assets to reduce memory usage. Loaded Objects now: 321.
+Total: 1.523792 ms (FindLiveObjects: 0.038336 ms CreateObjectMapping: 0.044071 ms MarkObjects: 0.119838 ms  DeleteObjects: 1.320941 ms)
 
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 355c -> priority: 1 
-  Thread -> id: 1950 -> priority: 1 
+  Thread -> id: 22e8 -> priority: 1 
+  Thread -> id: 2124 -> priority: 1 

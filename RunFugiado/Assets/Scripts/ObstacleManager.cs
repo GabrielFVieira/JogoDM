@@ -85,7 +85,7 @@ public class ObstacleManager : MonoBehaviour {
                 Vel = GameObject.Find("Bg").GetComponent<Parallax>().parallaxVel;
 				if (transform.position.x < -16f || GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().GetBool ("Die") == true) {
 					move = false;
-					Vel = 0;
+					Vel = 1;
 				}
             }
             

@@ -1,11 +1,13 @@
 fileFormatVersion: 2
 guid: c80bb264b82208b4eb7f3e30627aed20
-timeCreated: 1511302478
+timeCreated: 1511380879
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Nadia Death_0
     21300002: Nadia Death_1
+    21300004: Nadia Death_2
+    21300006: Nadia Death_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -84,11 +86,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 116
-        width: 324
-        height: 116
+        y: 372
+        width: 96
+        height: 288
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -96,12 +98,38 @@ TextureImporter:
       name: Nadia Death_1
       rect:
         serializedVersion: 2
-        x: 0
+        x: 344
+        y: 372
+        width: 144
+        height: 280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Nadia Death_2
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 40
+        width: 164
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Nadia Death_3
+      rect:
+        serializedVersion: 2
+        x: 323
         y: 0
         width: 324
         height: 116
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 1.4049517}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

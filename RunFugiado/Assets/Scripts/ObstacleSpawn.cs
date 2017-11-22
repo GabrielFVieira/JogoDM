@@ -57,6 +57,7 @@ public class ObstacleSpawn : MonoBehaviour {
 
         missilePosX = 10f;
 
+        delay = 1;
     }
 	
 	// Update is called once per frame
@@ -75,24 +76,15 @@ public class ObstacleSpawn : MonoBehaviour {
                 difficultTimer = 0;
             }
 
-            randomDelay = Random.Range(0, 5);
-
             if (randomDelay == 0)
                 delay = 1f;
 
             if (randomDelay == 1)
-                delay = 1.3f;
+                delay = 1.7f;
 
             if (randomDelay == 2)
-                delay = 1.8f;
-
-            if (randomDelay == 3)
-                delay = 2.1f;
-
-            if (randomDelay == 4)
-                delay = 2.5f;
-
-
+                delay = 2.4f;
+            
             maxTimer = delay;
 
             if (timer > maxTimer && manager.gameTimer <= manager.MaxTime - 4)
@@ -158,7 +150,7 @@ public class ObstacleSpawn : MonoBehaviour {
                     timer = 0;
                 }
 
-
+                randomDelay = Random.Range(0, 3);
             }
         }
     }

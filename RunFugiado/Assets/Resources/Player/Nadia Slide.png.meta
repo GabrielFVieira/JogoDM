@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1cb9d7b2381f11d40b9f53384952e1d5
-timeCreated: 1511304834
+timeCreated: 1511381592
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -83,12 +83,12 @@ TextureImporter:
       name: Nadia Slide_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 284
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.65}
+        x: 8
+        y: 220
+        width: 267
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -96,12 +96,12 @@ TextureImporter:
       name: Nadia Slide_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 284
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.65}
+        x: 8
+        y: 20
+        width: 267
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
