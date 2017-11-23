@@ -21,8 +21,6 @@ public class LevelManager : MonoBehaviour {
     void Start () {
         vol = AudioListener.volume;
 
-		MaxTime = 120;
-
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
     }

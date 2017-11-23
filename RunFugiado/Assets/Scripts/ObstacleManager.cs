@@ -32,7 +32,7 @@ public class ObstacleManager : MonoBehaviour {
             timer2 += Time.deltaTime;
         }
 
-        if (transform.position.x < -21 || timer2 > 0.3f)
+        if (transform.position.x < -23 || timer2 > 0.3f)
             Destroy(gameObject);
 
         if (move == true && GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("Die") == false)
