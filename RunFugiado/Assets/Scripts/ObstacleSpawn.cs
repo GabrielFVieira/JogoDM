@@ -31,6 +31,7 @@ public class ObstacleSpawn : MonoBehaviour {
 
     public float randomMissilePosX;
     public GameObject[] alerts;
+    public AudioSource alert;
 
     public float delay;
     public float randomDelay;
@@ -102,6 +103,8 @@ public class ObstacleSpawn : MonoBehaviour {
                             GameObject missileObstacle = Instantiate(missile) as GameObject;
                             missileObstacle.transform.position = new Vector3(missilePosX, -2.77f, 0);
                             alerts[Mathf.RoundToInt(randomMissilePosX)].SetActive(true);
+                            alert.Play();
+
                             timer = 0;
                         }
 
@@ -110,6 +113,8 @@ public class ObstacleSpawn : MonoBehaviour {
                             GameObject missileObstacle = Instantiate(missile) as GameObject;
                             missileObstacle.transform.position = new Vector3(missilePosX, -3.63f, 0);
                             alerts[Mathf.RoundToInt(randomMissilePosX)].SetActive(true);
+                            alert.Play();
+
                             timer = 0;
                         }
                     }
